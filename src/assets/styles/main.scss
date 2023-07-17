@@ -1,0 +1,121 @@
+// @import url("https://use.typekit.net/jmk3xov.css");
+@font-face {
+  font-family: "Product Sans";
+  src: url(../fonts/Product_Sans_Regular.ttf);
+}
+@font-face {
+  font-family: "Product Sans Italic";
+  src: url(../fonts/Product_Sans_Italic.ttf);
+}
+@font-face {
+  font-family: "Product Sans Bold";
+  src: url(../fonts/Product_Sans_Bold.ttf);
+}
+@font-face {
+  font-family: "Product Sans Bold Italic";
+  src: url(../fonts/Product_Sans_Bold_Italic.ttf);
+}
+
+:root {
+  --border: rgba(0, 0, 0, 1);
+  --dark-bg: rgba(15, 15, 15, 0.4);
+  --spacing: 350px;
+
+  font-family: "Product Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  margin: 0 auto;
+  place-items: center;
+  -webkit-user-select: none; 
+  -ms-user-select: none; 
+  user-select: none;
+}
+
+div#canvas-ct canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+// #loading-screen:not(:has(.fade-out)) {
+//   html, body, main, blockquote {
+//     display: none;
+//   }
+// }
+
+main {
+  width: 100vw;
+  color: white;
+  z-index: 99;
+  position: absolute;
+  width: 100%;
+  margin: 0px auto;
+  padding: 120px 0px;
+
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+blockquote {
+  font-family: "Product Sans Bold Italic", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+h1,h2,h3,
+blockquote span {
+  font-family: "Product Sans Bold", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+header {
+  border: 1px solid var(--border);
+  background: var(--dark-bg);
+  border-radius: 6px;
+  grid-column: 2 / span 5;
+  font-size: 2.5rem;
+  padding: 1rem;
+  margin-bottom: var(--spacing);
+}
+
+section:not(:has(blockquote)) {
+  grid-column: 2 / 8;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  background: var(--dark-bg);
+  border-radius: 6px;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin-bottom: var(--spacing);
+}
+section:has(blockquote) {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  grid-column: 2 / 9;
+  margin-bottom: var(--spacing);
+  background-color: white;
+  border-radius: 6px;
+}
+ 
+
+blockquote p, blockquote span {
+  color: black;
+  display: inline;
+  line-height: 1;
+  border-radius: 6px;
+  padding: 4px;
+}
+blockquote p {
+  font-size: 4rem;
+}
+blockquote span {
+  font-size: 0.8em;
+}
+
+.left {
+  grid-column: 6 / 12;
+}
