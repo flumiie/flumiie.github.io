@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [
     react(),
     viteRawPlugin({
-      fileRegex: /\.glsl$/,
+      fileRegex: /\.(glsl|js)$/,
     }),
   ],
 });
