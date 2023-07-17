@@ -1,3 +1,4 @@
-import HomepageContents from "./Home";
+import HomeContents from "./Home";
+import ScrollingCanvasContents from "./ScrollingCanvas";
 
-export { HomepageContents };
+export { HomeContents, ScrollingCanvasContents };

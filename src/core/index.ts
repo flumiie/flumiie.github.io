@@ -1,4 +1,4 @@
-import HomepageContents from "../contents/Home";
+import ScrollingCanvasContents from "../contents/ScrollingCanvas";
 import Camera from "./Camera";
 import Controls from "./Controls";
 import Lights from "./Lights";
@@ -9,7 +9,7 @@ import Textures from "./Textures";
 import Tick from "./Tick";
 
 export {
-  HomepageContents as Contents,
+  ScrollingCanvasContents as Contents,
   Camera,
   Controls,
   Lights,

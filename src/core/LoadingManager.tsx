@@ -2,7 +2,7 @@ import ReactDOMServer from 'react-dom/server';
 import * as THREE from 'three';
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
-import { HomepageContents } from '../contents';
+import { ScrollingCanvasContents } from '../contents';
 
 function LoadingManager(controls?: OrbitControls) {
   const mainContent = document.querySelector('main');
@@ -13,7 +13,7 @@ function LoadingManager(controls?: OrbitControls) {
       loadingScreen.classList.add('fade-out');
 
       if (!controls?.enabled && loadingScreen?.classList.contains('fade-out')) {
-        const tester = ReactDOMServer.renderToString(<HomepageContents />);
+        const tester = ReactDOMServer.renderToString(<ScrollingCanvasContents />);
         mainContent.innerHTML = tester;
 
         if (mainContent.innerHTML.toString().length > 100) {

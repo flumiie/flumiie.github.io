@@ -1,4 +1,4 @@
-function HomeContents(): JSX.Element {
+function ScrollingCanvasContents(): JSX.Element {
   return (
     <>
       <header>
@@ -100,4 +100,4 @@ function HomeContents(): JSX.Element {
   );
 }
 
-export default HomeContents;
+export default ScrollingCanvasContents;
