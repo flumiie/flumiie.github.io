@@ -1,3 +1,5 @@
+import '../assets/styles/nav.scss';
+
 type NavigationTypes = 'dropdown' | 'direct';
 type NavigationLinksType = {
   id: string;
@@ -17,7 +19,7 @@ interface NavbarLinkProps {
 
 const Dropdown = (props: DropdownProps) => {
   return (
-    <div className='dropdown'>
+    <div>
       <button
         className="dropdown-button"
         onMouseOver={(e) => {
@@ -39,7 +41,7 @@ const Dropdown = (props: DropdownProps) => {
 const NavbarLink = (props: NavbarLinkProps) => {
   if (props.type === 'dropdown') {
     return (
-      <li>
+      <li className='dropdown'>
         <Dropdown
           label={props.children}
           links={[
@@ -70,6 +72,7 @@ const NavbarLink = (props: NavbarLinkProps) => {
 
   return (
     <li
+      className="direct"
       onMouseOver={(e) => {
         (e.target as HTMLElement).style.textDecoration = 'underline';
       }}

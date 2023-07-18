@@ -1,5 +1,5 @@
 import Home from "./Home";
-import PortalPlain from "./Portal.Plain";
-import ScrollingCanvas from "./ScrollingCanvas";
+import PortalPlain from "./wip/Portal.Plain";
+import ScrollingCanvas from "./wip/ScrollingCanvas";
 
 export { Home, PortalPlain, ScrollingCanvas };

@@ -6,11 +6,14 @@ import * as CameraUtils from "three/addons/utils/CameraUtils.js";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
 const PortalPlain = () => {
-  let camera: THREE.PerspectiveCamera, scene: THREE.Scene, renderer: THREE.WebGLRenderer;
+  let camera: THREE.PerspectiveCamera,
+    scene: THREE.Scene,
+    renderer: THREE.WebGLRenderer;
 
   let cameraControls: OrbitControls;
 
-  let smallSphereOne: THREE.Mesh, smallSphereTwo: THREE.Mesh;
+  let smallSphereOne: THREE.Mesh,
+    smallSphereTwo: THREE.Mesh;
 
   let portalCamera: THREE.PerspectiveCamera,
     leftPortal: THREE.Mesh,
@@ -260,9 +263,7 @@ const PortalPlain = () => {
 
     // render the main scene
     renderer.render(scene, camera);
-
   }
-
   return null;
 };
 

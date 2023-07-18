@@ -1,23 +1,27 @@
 import { RefObject, Suspense, useMemo, useRef } from 'react';
 import * as THREE from 'three';
-import { Canvas, MeshProps, PerspectiveCameraProps, useFrame, useLoader } from '@react-three/fiber';
-import { useControls } from 'leva';
+import { Canvas, MeshProps, OrthographicCameraProps, PerspectiveCameraProps, useFrame, useLoader } from '@react-three/fiber';
+import { folder, useControls } from 'leva';
 // import { Camera, Controls, Lights, LoadingManager, Objects, Renderer, Textures, Tick } from './core';
 // import { AddStars, AnimateOnScroll } from './functions';
 import { Loader, OrbitControls, PerspectiveCamera } from '@react-three/drei';
 
-import '../assets/styles/loading.scss';
-import '../assets/styles/main.scss';
+import backgroundTx from '../../assets/images/space.jpg';
+import minecraftTx from '../../assets/textures/minecraft.png';
 
-import backgroundTx from '../assets/images/space.jpg';
-import minecraftTx from '../assets/textures/minecraft.png';
-
-import vertex_Torus from '../assets/shaders/Torus/vertex.glsl';
-import fragment_Torus from '../assets/shaders/Torus/fragment.glsl';
-import { ScrollingCanvasContents } from '../contents';
+import vertex_Torus from '../../assets/shaders/Torus/vertex.glsl';
+import fragment_Torus from '../../assets/shaders/Torus/fragment.glsl';
+import { ScrollingCanvasContents } from '../../contents';
 import ReactDOMServer from 'react-dom/server';
+import { RenderPortal } from '../../functions';
+
+interface CameraProps extends Partial<PerspectiveCameraProps & OrthographicCameraProps> {
+  name: string;
+  camRef?: RefObject<THREE.PerspectiveCamera | THREE.OrthographicCamera>;
+}
 
 interface TorusProps extends MeshProps {
+  name: string;
   shaderMaterial: THREE.ShaderMaterialParameters;
   meshRef?: RefObject<THREE.Mesh>;
   shaderMatRef?: RefObject<THREE.ShaderMaterial>;
@@ -39,7 +43,65 @@ interface PortalProps extends MeshProps {
   textureOpts?: (texture: THREE.Texture) => void;
 }
 
+const Camera = (props: CameraProps) => {
+  const p = props.position ? props.position as Array<number> : [0, 0, 0];
+  const r = props.rotation ? props.rotation as Array<number> : [0, 0, 0];
+  const r_Order = props.rotation ? (props.rotation as Array<THREE.EulerOrder>)[3] : 'YXZ' as THREE.EulerOrder;
+  const gui = useControls(props.name, {
+    properties: folder({
+      fov: 75,
+      near: 0.1,
+      far: 600,
+    }),
+    position: folder({
+      pX: p[0],
+      pY: p[1],
+      pZ: p[2]
+    }),
+    rotation: folder({
+      rX: r[0],
+      rY: r[1],
+      rZ: r[2],
+      rOrder: r_Order
+    })
+  });
+
+  return (
+    <PerspectiveCamera
+      ref={props.camRef}
+      makeDefault
+      fov={gui.fov}
+      aspect={window.innerWidth / window.innerHeight}
+      near={gui.near}
+      far={gui.far}
+      position={[gui.pX, gui.pY, gui.pZ]}
+      rotation={[gui.rX, gui.rY, gui.rZ, gui.rOrder as THREE.Euler['order']]}
+    />
+  );
+};
+
 const Torus = (props: TorusProps) => {
+  const p = props.position ? props.position as Array<number> : [0, 0, 0];
+  const r = props.rotation ? props.rotation as Array<number> : [0, 0, 0];
+  const gui = useControls(props.name, {
+    properties: folder({
+      radius: 1.8,
+      tube: 1.2,
+      radialSegments: 48,
+      tubularSegments: 64,
+    }),
+    position: folder({
+      pX: p[0],
+      pY: p[1],
+      pZ: p[2]
+    }),
+    rotation: folder({
+      rX: r[0],
+      rY: r[1],
+      rZ: r[2]
+    })
+  });
+
   useFrame(({ clock }) => {
     if (props.useFrame) {
       props.useFrame(clock);
@@ -47,8 +109,13 @@ const Torus = (props: TorusProps) => {
   });
 
   return (
-    <mesh ref={props.meshRef} {...props}>
-      <torusGeometry args={[1.8, 1.2, 48, 64]} />
+    <mesh
+      ref={props.meshRef}
+      position={[gui.pX, gui.pY, gui.pZ]}
+      rotation={[gui.rX, gui.rY, gui.rZ]}
+      {...props}
+    >
+      <torusGeometry args={[gui.radius, gui.tube, gui.radialSegments, gui.tubularSegments]} />
       <shaderMaterial
         ref={props.shaderMatRef}
         attach="material"
@@ -81,11 +148,12 @@ const Portal = (props: PortalProps) => {
 };
 
 function ScrollingCanvas() {
-  const cameraRef = useRef<PerspectiveCameraProps>(null);
+  const cameraRef = useRef<THREE.PerspectiveCamera>(null);
   const firstTorusMeshRef = useRef<THREE.Mesh>(null);
   const torusShaderMatRef = useRef<THREE.ShaderMaterial>(null);
   const bouncingBallsMeshRef = useRef<THREE.Mesh>(null);
   const firstPortalMeshRef = useRef<THREE.Mesh>(null);
+  const secondPortalMeshRef = useRef<THREE.Mesh>(null);
 
   const textures = {
     background: useLoader(THREE.TextureLoader, backgroundTx),
@@ -114,17 +182,25 @@ function ScrollingCanvas() {
       firstPortalMeshRef.current.rotation.y = -calc * 0.000425;
     }
 
-    // if (cameraRef.current?.position) {
-    //   cameraRef.current.position.x = calc * -0.0025;
-    // }
+    if (cameraRef.current?.position) {
+      cameraRef.current.position.x = 4 + calc * -0.0001;
+      cameraRef.current.position.z = 2 + calc * 0.0001;
+    }
   };
 
   useMemo(() => {
     document.body.onscroll = onScroll;
-    (document.getElementById('contents') as HTMLElement).innerHTML = ReactDOMServer.renderToStaticMarkup(<ScrollingCanvasContents />);
-    return null;
+    (document.getElementById('contents') as HTMLElement).innerHTML =
+      ReactDOMServer.renderToStaticMarkup(<ScrollingCanvasContents />);
   }, []);
 
+  useMemo(() => {
+    if (firstPortalMeshRef.current && secondPortalMeshRef.current) {
+      const newwh = new THREE.WebGLRenderTarget(256, 256);
+      RenderPortal(firstPortalMeshRef.current, secondPortalMeshRef.current, newwh);
+      RenderPortal(secondPortalMeshRef.current, firstPortalMeshRef.current, newwh);
+    }
+  }, [firstPortalMeshRef, secondPortalMeshRef]);
 
   return (
     <div id="canvas-ct">
@@ -143,19 +219,17 @@ function ScrollingCanvas() {
         }}
       >
         <Suspense fallback={null}>
-          <PerspectiveCamera
-            ref={cameraRef}
-            makeDefault
-            fov={75}
-            aspect={window.innerWidth / window.innerHeight}
-            near={0.1}
-            far={600}
+          <Camera
+            name="PerspectiveCamera"
+            camRef={cameraRef}
             position={[4, 4, 2]}
           />
 
           <Torus
+            name="First Torus"
             meshRef={firstTorusMeshRef}
             shaderMatRef={torusShaderMatRef}
+            position={[0, 0, 0]}
             rotation={[Math.PI * .5, 0, 0]}
             shaderMaterial={{
               uniforms: {
@@ -183,6 +257,18 @@ function ScrollingCanvas() {
               T.magFilter = THREE.NearestFilter;
             }}
           />
+          <Portal
+            meshRef={secondPortalMeshRef}
+            position={[0, -1, 0]}
+            rotation={[Math.PI * 1.5, 0, Math.PI / 0.42]}
+            scale={[0.035, 0.035, 0.035]}
+            planeArgs={[100.1, 100.1]}
+            texture={textures.portalTextureOne}
+            textureOpts={(T) => {
+              T.generateMipmaps = false;
+              T.magFilter = THREE.NearestFilter;
+            }}
+          />
 
           <OrbitControls
             enableDamping={true}
@@ -195,35 +281,35 @@ function ScrollingCanvas() {
   );
 }
 
-function LevaDebugGUI() {
-  return (
-    <>
-      {/* <Leva
-        // theme={myTheme} // you can pass a custom theme (see the styling section)
-        fill // default = false,  true makes the pane fill the parent dom node it's rendered in
-        flat // default = false,  true removes border radius and shadow
-        oneLineLabels // default = false, alternative layout for labels, with labels and fields on separate rows
-        titleBar={{ title: "Camera" }} // default = false, hides the GUI header
-        collapsed // default = false, when true the GUI is collpased
-        hidden // default = false, when true the GUI is hidden
-      /> */}
-      <D_Camera_Controls />
-    </>
-  );
-}
+// function LevaDebugGUI() {
+//   return (
+//     <>
+//       <Leva
+//         // theme={myTheme} // you can pass a custom theme (see the styling section)
+//         fill // default = false,  true makes the pane fill the parent dom node it's rendered in
+//         flat // default = false,  true removes border radius and shadow
+//         oneLineLabels // default = false, alternative layout for labels, with labels and fields on separate rows
+//         titleBar={{ title: "Camera" }} // default = false, hides the GUI header
+//         collapsed // default = false, when true the GUI is collpased
+//         hidden // default = false, when true the GUI is hidden
+//       />
+//       <D_Camera_Controls />
+//     </>
+//   );
+// }
 
-function D_Camera_Controls() {
-  // const { camera } = leva.useControls({ camera: 10 });
-  // return camera;
+// function D_Camera_Controls() {
+// const { camera } = leva.useControls({ camera: 10 });
+// return camera;
 
-  const { name, aNumber } = useControls({ name: 'World', aNumber: 0 });
+//   const { name, aNumber } = useControls({ name: 'World', aNumber: 0 });
 
-  return (
-    <div id="leva">
-      Hey {name}, hello! {aNumber}
-    </div>
-  );
-}
+//   return (
+//     <div id="leva">
+//       Hey {name}, hello! {aNumber}
+//     </div>
+//   );
+// }
 
 // function App() {
 //   const [starsAmount] = useState(200);

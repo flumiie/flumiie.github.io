@@ -2,6 +2,9 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Home, PortalPlain, ScrollingCanvas } from './pages';
 import { Navbar } from './components';
 
+import './assets/styles/loading.scss';
+import './assets/styles/main.scss';
+
 function App() {
   return (
     <BrowserRouter>
