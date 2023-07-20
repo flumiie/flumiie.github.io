@@ -74,7 +74,7 @@ const Portal = (props: PortalProps) => {
   );
 };
 
-function ScrollingCanvas() {
+function Hexworld() {
   const cameraRef = useRef<PerspectiveCameraProps>(null);
   const firstTorusMeshRef = useRef<THREE.Mesh>(null);
   const torusShaderMatRef = useRef<THREE.ShaderMaterial>(null);
@@ -189,4 +189,4 @@ function ScrollingCanvas() {
   );
 }
 
-export default ScrollingCanvas;
+export default Hexworld;

@@ -4,6 +4,7 @@ import { Navbar } from './components';
 
 import './assets/styles/loading.scss';
 import './assets/styles/main.scss';
+import { LevaConfig } from './core';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/wip/portal-plain" Component={PortalPlain} />
         <Route path="/wip/rubiks" Component={null} />
       </Routes>
+      <LevaConfig />
       <Navbar />
     </BrowserRouter>
   );

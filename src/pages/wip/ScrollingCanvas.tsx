@@ -2,21 +2,18 @@ import { RefObject, Suspense, useMemo, useRef } from 'react';
 import * as THREE from 'three';
 import { Canvas, MeshProps, OrthographicCameraProps, PerspectiveCameraProps, useFrame, useLoader } from '@react-three/fiber';
 import { folder, useControls } from 'leva';
-// import { Camera, Controls, Lights, LoadingManager, Objects, Renderer, Textures, Tick } from './core';
-// import { AddStars, AnimateOnScroll } from './functions';
 import { Loader, OrbitControls, PerspectiveCamera } from '@react-three/drei';
 
 import backgroundTx from '../../assets/images/space.jpg';
 import minecraftTx from '../../assets/textures/minecraft.png';
 
-import vertex_Torus from '../../assets/shaders/Torus/vertex.glsl';
-import fragment_Torus from '../../assets/shaders/Torus/fragment.glsl';
+import Torus_Vertex from '../../assets/shaders/Torus/vertex.glsl';
+import Torus_Fragment from '../../assets/shaders/Torus/fragment.glsl';
 import { ScrollingCanvasContents } from '../../contents';
-import ReactDOMServer from 'react-dom/server';
-import { RenderPortal } from '../../functions';
+import { ContentUpdater, OnScroll, RenderPortal, aspectRatio, defaultToneMapping } from '../../functions';
 
 interface CameraProps extends Partial<PerspectiveCameraProps & OrthographicCameraProps> {
-  name: string;
+  type: 'PerspectiveCamera' | 'OrthographicCamera';
   camRef?: RefObject<THREE.PerspectiveCamera | THREE.OrthographicCamera>;
 }
 
@@ -45,9 +42,7 @@ interface PortalProps extends MeshProps {
 
 const Camera = (props: CameraProps) => {
   const p = props.position ? props.position as Array<number> : [0, 0, 0];
-  const r = props.rotation ? props.rotation as Array<number> : [0, 0, 0];
-  const r_Order = props.rotation ? (props.rotation as Array<THREE.EulerOrder>)[3] : 'YXZ' as THREE.EulerOrder;
-  const gui = useControls(props.name, {
+  const gui = useControls(props.type, {
     properties: folder({
       fov: 75,
       near: 0.1,
@@ -58,12 +53,6 @@ const Camera = (props: CameraProps) => {
       pY: p[1],
       pZ: p[2]
     }),
-    rotation: folder({
-      rX: r[0],
-      rY: r[1],
-      rZ: r[2],
-      rOrder: r_Order
-    })
   });
 
   return (
@@ -71,11 +60,10 @@ const Camera = (props: CameraProps) => {
       ref={props.camRef}
       makeDefault
       fov={gui.fov}
-      aspect={window.innerWidth / window.innerHeight}
+      aspect={aspectRatio}
       near={gui.near}
       far={gui.far}
       position={[gui.pX, gui.pY, gui.pZ]}
-      rotation={[gui.rX, gui.rY, gui.rZ, gui.rOrder as THREE.Euler['order']]}
     />
   );
 };
@@ -151,7 +139,6 @@ function ScrollingCanvas() {
   const cameraRef = useRef<THREE.PerspectiveCamera>(null);
   const firstTorusMeshRef = useRef<THREE.Mesh>(null);
   const torusShaderMatRef = useRef<THREE.ShaderMaterial>(null);
-  const bouncingBallsMeshRef = useRef<THREE.Mesh>(null);
   const firstPortalMeshRef = useRef<THREE.Mesh>(null);
   const secondPortalMeshRef = useRef<THREE.Mesh>(null);
 
@@ -161,44 +148,19 @@ function ScrollingCanvas() {
     portalTextureOne: useLoader(THREE.TextureLoader, minecraftTx),
   };
 
-  const onScroll = () => {
-    const calc = document.body.getBoundingClientRect().top;
-
-    if (firstTorusMeshRef.current?.position) {
-      firstTorusMeshRef.current.position.x = 4 * (calc * -0.00055);
-      firstTorusMeshRef.current.position.y = 4 * (calc * -0.0005);
-      firstTorusMeshRef.current.position.z = 2 * (calc * -0.0005);
-
-      firstTorusMeshRef.current.rotation.x = (Math.PI * .5) - calc * Math.PI * 0.00005;
-      firstTorusMeshRef.current.rotation.y = calc * Math.PI * 0.00015;
-      // torusMeshRef.current.rotation.z = calc * 0;
-    }
-
-    if (firstPortalMeshRef.current) {
-      firstPortalMeshRef.current.position.x = 4 * (calc * -0.00055);
-      firstPortalMeshRef.current.position.y = -1 + 4 * (calc * -0.0005);
-      firstPortalMeshRef.current.position.z = 2 * (calc * -0.0005);
-
-      firstPortalMeshRef.current.rotation.y = -calc * 0.000425;
-    }
-
-    if (cameraRef.current?.position) {
-      cameraRef.current.position.x = 4 + calc * -0.0001;
-      cameraRef.current.position.z = 2 + calc * 0.0001;
-    }
-  };
-
-  useMemo(() => {
-    document.body.onscroll = onScroll;
-    (document.getElementById('contents') as HTMLElement).innerHTML =
-      ReactDOMServer.renderToStaticMarkup(<ScrollingCanvasContents />);
-  }, []);
-
   useMemo(() => {
     if (firstPortalMeshRef.current && secondPortalMeshRef.current) {
       const newwh = new THREE.WebGLRenderTarget(256, 256);
-      RenderPortal(firstPortalMeshRef.current, secondPortalMeshRef.current, newwh);
-      RenderPortal(secondPortalMeshRef.current, firstPortalMeshRef.current, newwh);
+      RenderPortal(
+        firstPortalMeshRef.current,
+        secondPortalMeshRef.current,
+        newwh
+      );
+      RenderPortal(
+        secondPortalMeshRef.current,
+        firstPortalMeshRef.current,
+        newwh
+      );
     }
   }, [firstPortalMeshRef, secondPortalMeshRef]);
 
@@ -206,7 +168,7 @@ function ScrollingCanvas() {
     <div id="canvas-ct">
       <Canvas
         gl={{
-          toneMapping: THREE.ACESFilmicToneMapping,
+          toneMapping: defaultToneMapping,
           pixelRatio: window.devicePixelRatio,
           useLegacyLights: false,
           localClippingEnabled: true
@@ -215,12 +177,12 @@ function ScrollingCanvas() {
           position: 'fixed',
           top: 0,
           left: 0,
-          aspectRatio: window.innerWidth / window.innerHeight
+          aspectRatio,
         }}
       >
         <Suspense fallback={null}>
           <Camera
-            name="PerspectiveCamera"
+            type="PerspectiveCamera"
             camRef={cameraRef}
             position={[4, 4, 2]}
           />
@@ -235,8 +197,8 @@ function ScrollingCanvas() {
               uniforms: {
                 u_time: { value: 0 }
               },
-              vertexShader: vertex_Torus,
-              fragmentShader: fragment_Torus,
+              vertexShader: Torus_Vertex,
+              fragmentShader: Torus_Fragment,
             }}
             useFrame={(clock) => {
               if (torusShaderMatRef.current) {
@@ -276,7 +238,36 @@ function ScrollingCanvas() {
           />
         </Suspense>
       </Canvas>
+
       <Loader />
+
+      <ContentUpdater content={<ScrollingCanvasContents />} />
+
+      <OnScroll updates={(calc) => {
+        if (firstTorusMeshRef.current?.position) {
+          firstTorusMeshRef.current.position.x = 4 * (calc * -0.00055);
+          firstTorusMeshRef.current.position.y = 4 * (calc * -0.0005);
+          firstTorusMeshRef.current.position.z = 2 * (calc * -0.0005);
+
+          firstTorusMeshRef.current.rotation.x =
+            Math.PI * 0.5 - calc * Math.PI * 0.00005;
+          firstTorusMeshRef.current.rotation.y = calc * Math.PI * 0.00015;
+          // torusMeshRef.current.rotation.z = calc * 0;
+        }
+
+        if (firstPortalMeshRef.current) {
+          firstPortalMeshRef.current.position.x = 4 * (calc * -0.00055);
+          firstPortalMeshRef.current.position.y = -1 + 4 * (calc * -0.0005);
+          firstPortalMeshRef.current.position.z = 2 * (calc * -0.0005);
+
+          firstPortalMeshRef.current.rotation.y = -calc * 0.000425;
+        }
+
+        if (cameraRef.current?.position) {
+          cameraRef.current.position.x = 4 + calc * -0.0001;
+          cameraRef.current.position.z = 2 + calc * 0.0001;
+        }
+      }} />
     </div >
   );
 }

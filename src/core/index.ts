@@ -1,6 +1,6 @@
 import ScrollingCanvasContents from "../contents/ScrollingCanvas";
-import Camera from "./Camera";
 import Controls from "./Controls";
+import LevaConfig from "./LevaConfig";
 import Lights from "./Lights";
 import LoadingManager from "./LoadingManager";
 import Objects from "./Objects";
@@ -9,9 +9,9 @@ import Textures from "./Textures";
 import Tick from "./Tick";
 
 export {
-  ScrollingCanvasContents as Contents,
-  Camera,
+  ScrollingCanvasContents,
   Controls,
+  LevaConfig,
   Lights,
   LoadingManager,
   Objects,
