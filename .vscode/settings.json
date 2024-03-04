@@ -1,8 +1,0 @@
-{
-  "terminal.integrated.defaultProfile.windows": "Arch (WSL)",
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
-  },
-  "eslint.validate": ["typescript"],
-  "editor.formatOnSave": true
-}
