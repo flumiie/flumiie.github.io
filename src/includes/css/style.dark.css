@@ -1,0 +1,146 @@
+textarea {
+  background-color: #343a40 !important;
+}
+label,
+#copyright-msg {
+  color: #f9f9f9;
+}
+input,
+textarea {
+  color: #f9f9f9 !important;
+}
+
+#loading-stuck-notice p {
+  color: white;
+}
+#blocker-notice,
+#context-menu-blocker-notice {
+  background-color: rgba(142, 142, 142, 0.8);
+}
+#blocker-notice p,
+#context-menu-blocker-notice p {
+  color: black;
+}
+#blocker-notice button,
+#context-menu-blocker-notice button {
+  background-color: rgba(255, 0, 0, 0.7);
+}
+
+nav a {
+  color: #f9f9f9;
+  text-decoration: none;
+}
+.navbar-brand:hover {
+  /* padding: 10px 10px; */
+  color: #f9f9f9 !important;
+  background-color: #e81123;
+}
+#theme-mode-btn {
+  position: absolute;
+  margin: 1px 0 0 -29px;
+  font-size: 10px;
+  color: #F9F9F9
+}
+
+/* 
+ * This is the cursor class
+ * from 'react-typing-animation' package
+ */
+.typer p, .typer b, .typer h2, .typer h3,
+.efaGep {
+  color: #F00;
+  font-weight: bold !important;
+}
+
+.marquee p {
+  color: #202020;
+  display: inline-block;
+  padding-left: 100%;
+  animation: mq-anim 20s linear infinite;
+}
+
+.project-title-mobile {
+  color: white;
+}
+
+button#submit {
+  background-color: #f04c4c !important;
+}
+
+#contact-button > a > button {
+  color: #f9f9f9;
+  background-color: #343a40;
+  width: 210px;
+}
+#contact-button > a > button:hover {
+  color: white;
+  background-color: red;
+}
+
+#msk-container div a {
+  color: white;
+}
+/* #msk-container div a:hover
+{
+    color: white;
+    background-color: red
+} */
+
+#link-stats,
+#made-with {
+  text-decoration: none;
+}
+#link-stats {
+  color: #1a1a1a;
+}
+#made-with {
+  color: white;
+}
+#link-stats:hover,
+#made-with:hover {
+  color: red;
+}
+#last-update-details {
+  color: white;
+}
+
+@media screen and (max-width: 768px) {
+  #link-stats {
+    color: #1a1a1a;
+  }
+  #made-with {
+    color: white;
+  }
+}
+@media screen and (max-width: 411px) {
+  #link-stats {
+    color: #1a1a1a;
+  }
+  #made-with {
+    color: white;
+  }
+}
+@media screen and (max-width: 375px) {
+  #link-stats {
+    color: #1a1a1a;
+  }
+  #made-with {
+    color: white;
+  }
+}
+@media screen and (max-width: 360px) {
+  #link-stats {
+    color: #1a1a1a;
+  }
+  #made-with {
+    color: white;
+  }
+}
+@media screen and (max-width: 320px) {
+  #link-stats {
+    color: #1a1a1a;
+  }
+  #made-with {
+    color: white;
+  }
+}

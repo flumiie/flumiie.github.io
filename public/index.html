@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- <script src="%PUBLIC_URL%/includes/js/blocker.js"></script> -->
+
+    <meta http-equiv="Cache-control" content="no-cache" />
+    <meta http-equiv="Expires" content="-1" />
+    <meta http-equiv="pragma" content="no-cache" />
+
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, user-scalable=no"
+    />
+    <meta name="theme-color" content="#000000" />
+
+    <!-- Open Graph Tags -->
+    <meta property="og:site_name" content="Ferick Andrew" />
+    <meta property="og:description" content="Portfolio" />
+    <meta property="og:image" content="%PUBLIC_URL%/favicon.ico" />
+    <meta property="og:url" content="https://ferickandrew.com/" />
+    <meta property="og:type" content="Portfolio" />
+
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon-transparent.ico" />
+    <title>Ferick Andrew</title>
+
+    <link rel="stylesheet" href="%PUBLIC_URL%/includes/css/style.css" />
+  </head>
+
+  <body id="body" class="dark-mode">
+    <noscript>
+      You need to enable JavaScript to run this site.
+    </noscript>
+    <div class="background-container">
+      <div class="background-scroll"></div>
+    </div>
+    <div id="root"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="%PUBLIC_URL%/includes/js/script.js"></script>
+    <script
+      data-cfasync="false"
+      type="text/javascript"
+      src="%PUBLIC_URL%/includes/js/form-submission-handler.js"
+    ></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-47215386-3"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
+
+      gtag('config', 'UA-47215386-3')
+      gtag('set', { user_id: 'USER_ID' }) // Set the user ID using signed-in user_id.
+      gtag('set', 'userId', 'USER_ID') // Set the user ID using signed-in user_id.
+    </script>
+    <script>
+      if (localStorage.getItem('No Cache Refresh') === null)
+        localStorage.setItem('No Cache Refresh', false)
+      if (localStorage.getItem('No Cache Refresh') === 'false') {
+        location.reload(true)
+        localStorage.setItem('No Cache Refresh', true)
+      }
+    </script>
+  </body>
+</html>
