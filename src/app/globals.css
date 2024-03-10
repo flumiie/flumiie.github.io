@@ -27,8 +27,39 @@ body {
   transition: background 0.2s ease;
 }
 
+.sparkle {
+  display: none;
+  position: absolute;
+  width: 906px;
+  height: 202px;
+  transform: scale(0.5);
+  margin: -5.5em 0 0 -17.2em;
+  clip-path: inset(0 600px 0 0 round 50px);
+  background: url('/images/sparkle.sprite.png');
+  animation: sparkle-sprite 1s steps(3) infinite;
+}
+
+#stuffs:hover .sparkle,
+#contacts:hover .sparkle {
+  display: flex;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@keyframes sparkle-sprite {
+  0% {
+    background-position-x: 0px;
+  }
+
+  50% {
+    background-position-x: 910px;
+  }
+
+  100% {
+    background-position-x: 1810px;
   }
 }

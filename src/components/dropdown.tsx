@@ -15,7 +15,7 @@ export interface DropdownProps {
   items: DropdownItems;
 }
 const Dropdown = (props: DropdownProps) => {
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <div
@@ -39,7 +39,7 @@ const Dropdown = (props: DropdownProps) => {
           leaveFrom="opacity-100 translate-y-0"
           leaveTo="opacity-0 translate-x-1 translate-y-1"
         >
-          <Popover.Panel id="popover-panel" className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-rose-100 shadow-lg ring-1 ring-gray-900/5">
+          <Popover.Panel id="popover-panel" className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
             <div className="p-4">
               {props.items.map((item) => (
                 <div
