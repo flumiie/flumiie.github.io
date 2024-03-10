@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { Dialog, Disclosure, Popover } from '@headlessui/react'
 import { Bars3Icon, CursorArrowRaysIcon, SquaresPlusIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
-import { Dropdown } from '.'
+import { Dropdown, MenuItem } from '.'
 import { DropdownItems } from './dropdown'
 
 const items: DropdownItems = [
@@ -41,16 +41,19 @@ const Navbar = () => {
         </div>
 
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
-          <div id="stuffs">
+          <a id="works" href="#" className="text-sm font-semibold leading-6 text-gray-900">
+            Works
             <div className="sparkle"></div>
-            <Dropdown items={items} />
-          </div>
-          <div id="contacts">
+            {/* <Dropdown label={} items={items} /> */}
+          </a>
+          <a id="playground" href="#" className="text-sm font-semibold leading-6 text-gray-900">
+            Playground
+            <div className="sparkle"></div>
+          </a>
+          <a id="contacts" href="#" className="text-sm font-semibold leading-6 text-gray-900">
+            Contacts
             <div className='sparkle'></div>
-            <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-              Contacts
-            </a>
-          </div>
+          </a>
         </Popover.Group>
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -121,7 +124,7 @@ const Navbar = () => {
           </div>
         </Dialog.Panel>
       </Dialog>
-    </header>
+    </header >
   )
 }
 

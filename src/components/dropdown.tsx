@@ -12,20 +12,24 @@ export type DropdownItems = {
 }[]
 
 export interface DropdownProps {
+  label: string;
   items: DropdownItems;
+  id?: string;
 }
 const Dropdown = (props: DropdownProps) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <div
+      id={props?.id}
       onMouseEnter={() => setMenuOpen(true)}
       onMouseLeave={() => setMenuOpen(false)}
       style={{ paddingBottom: '1em', marginBottom: '-1em' }}
     >
+      {menuOpen ? <div className="sparkle"></div> : null}
       <Popover className="relative">
         <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
-          Stuffs
+          {props.label}
           <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
         </Popover.Button>
 

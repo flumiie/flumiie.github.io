@@ -28,20 +28,30 @@ body {
 }
 
 .sparkle {
-  display: none;
+  opacity: 0;
   position: absolute;
   width: 906px;
   height: 202px;
   transform: scale(0.5);
-  margin: -5.5em 0 0 -17.2em;
+  margin: -8em 0 0 -19.7em;
   clip-path: inset(0 600px 0 0 round 50px);
   background: url('/images/sparkle.sprite.png');
   animation: sparkle-sprite 1s steps(3) infinite;
+  transition: opacity 0.075s ease;
 }
 
-#stuffs:hover .sparkle,
+#works .sparkle {
+  width: 870px;
+}
+
+#playground .sparkle {
+  width: 930px;
+}
+
+#works:hover .sparkle,
+#playground:hover .sparkle,
 #contacts:hover .sparkle {
-  display: flex;
+  opacity: 1
 }
 
 @layer utilities {
