@@ -5,14 +5,14 @@
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-end-rgb: 255, 255, 255
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0
   }
 }
 
@@ -20,11 +20,11 @@ body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb))
 }
 
 #popover-panel .group {
-  transition: background 0.2s ease;
+  transition: background 0.2s ease
 }
 
 .sparkle {
@@ -37,39 +37,48 @@ body {
   clip-path: inset(0 600px 0 0 round 50px);
   background: url('/images/sparkle.sprite.png');
   animation: sparkle-sprite 1s steps(3) infinite;
-  transition: opacity 0.075s ease;
+  transition: opacity 0.075s ease
 }
 
-#works .sparkle {
-  width: 870px;
+#nav-works .sparkle {
+  width: 870px
 }
 
-#playground .sparkle {
-  width: 930px;
+#nav-playground .sparkle {
+  width: 930px
 }
 
-#works:hover .sparkle,
-#playground:hover .sparkle,
-#contacts:hover .sparkle {
+#nav-works:hover .sparkle,
+#nav-playground:hover .sparkle,
+#nav-contacts:hover .sparkle {
   opacity: 1
+}
+
+.section {
+  padding: 26px 0
+}
+
+#playground {
+  background-color: white;
+  color: black;
 }
 
 @layer utilities {
   .text-balance {
-    text-wrap: balance;
+    text-wrap: balance
   }
 }
 
 @keyframes sparkle-sprite {
   0% {
-    background-position-x: 0px;
+    background-position-x: 0px
   }
 
   50% {
-    background-position-x: 910px;
+    background-position-x: 910px
   }
 
   100% {
-    background-position-x: 1810px;
+    background-position-x: 1810px
   }
 }

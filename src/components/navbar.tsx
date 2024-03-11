@@ -1,20 +1,13 @@
 "use client"
 
 import { useState } from 'react'
-import { Dialog, Disclosure, Popover } from '@headlessui/react'
-import { Bars3Icon, CursorArrowRaysIcon, SquaresPlusIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
-import { Dropdown, MenuItem } from '.'
-import { DropdownItems } from './dropdown'
+import { Dialog, Popover } from '@headlessui/react'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
-const items: DropdownItems = [
-  { name: 'Works', description: 'Most of what I\'ve worked on', href: '#', icon: SquaresPlusIcon },
-  { name: 'Playground', description: 'Just a fun time waster', href: '#', icon: CursorArrowRaysIcon },
-]
-
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
-}
+// const items: DropdownItems = [
+//   { name: 'Works', description: 'Most of what I\'ve worked on', href: '#', icon: SquaresPlusIcon },
+//   { name: 'Playground', description: 'Just a fun time waster', href: '#', icon: CursorArrowRaysIcon },
+// ]
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -41,16 +34,15 @@ const Navbar = () => {
         </div>
 
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
-          <a id="works" href="#" className="text-sm font-semibold leading-6 text-gray-900">
+          <a className="text-sm font-semibold leading-6 text-gray-900" id="nav-works" href="#works">
             Works
             <div className="sparkle"></div>
-            {/* <Dropdown label={} items={items} /> */}
           </a>
-          <a id="playground" href="#" className="text-sm font-semibold leading-6 text-gray-900">
+          <a className="text-sm font-semibold leading-6 text-gray-900" id="nav-playground" href="#playground">
             Playground
             <div className="sparkle"></div>
           </a>
-          <a id="contacts" href="#" className="text-sm font-semibold leading-6 text-gray-900">
+          <a className="text-sm font-semibold leading-6 text-gray-900" id="nav-contacts" href="#contacts">
             Contacts
             <div className='sparkle'></div>
           </a>
@@ -80,33 +72,20 @@ const Navbar = () => {
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
-                <Disclosure as="div" className="-mx-3">
-                  {({ open }) => (
-                    <>
-                      <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-rose-200">
-                        Stuffs
-                        <ChevronDownIcon
-                          className={classNames(open ? 'rotate-180' : '', 'h-5 w-5 flex-none')}
-                          aria-hidden="true"
-                        />
-                      </Disclosure.Button>
-                      <Disclosure.Panel className="mt-2 space-y-2">
-                        {[...items].map((item) => (
-                          <Disclosure.Button
-                            key={item.name}
-                            as="a"
-                            href={item.href}
-                            className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-rose-200"
-                          >
-                            {item.name}
-                          </Disclosure.Button>
-                        ))}
-                      </Disclosure.Panel>
-                    </>
-                  )}
-                </Disclosure>
                 <a
-                  href="#"
+                  href="#works"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-rose-200"
+                >
+                  Works
+                </a>
+                <a
+                  href="#playground"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-rose-200"
+                >
+                  Playground
+                </a>
+                <a
+                  href="#contacts"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-rose-200"
                 >
                   Contacts
