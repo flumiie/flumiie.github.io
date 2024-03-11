@@ -14,6 +14,8 @@ const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [fixedNavState, setFixedNavState] = useLocalStorage('fixed-nav', '');
+  const [playgroundOffset] = useLocalStorage('playground-offset', 0);
+  const [contactsOffset] = useLocalStorage('contacts-offset', 0);
 
   const onScroll = useCallback(() => {
     setScrollY(window.scrollY);
@@ -27,8 +29,8 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    const scrolledHalfway = scrollY > window.innerHeight / 2
-    if (scrolledHalfway) {
+    const halfwayFirstSection = scrollY > (document.getElementById('works')?.offsetHeight ?? 0) / 2
+    if (halfwayFirstSection) {
       setFixedNavState('header-fixed');
     } else {
       setFixedNavState('');
@@ -57,18 +59,45 @@ const Navbar = () => {
         </div>
 
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
-          <a className="text-sm font-semibold leading-6 text-gray-900" id="nav-works" href="#works">
+          <span
+            id="nav-works"
+            className="text-sm font-semibold leading-6 text-gray-900"
+            onClick={() => {
+              window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+              });
+            }}
+          >
             Works
             <div className="sparkle"></div>
-          </a>
-          <a className="text-sm font-semibold leading-6 text-gray-900" id="nav-playground" href="#playground">
+          </span>
+          <span
+            id="nav-playground"
+            className="text-sm font-semibold leading-6 text-gray-900"
+            onClick={() => {
+              window.scrollTo({
+                top: playgroundOffset - (fixedNavState ? 105 : 79.5),
+                behavior: 'smooth'
+              })
+            }}
+          >
             Playground
             <div className="sparkle"></div>
-          </a>
-          <a className="text-sm font-semibold leading-6 text-gray-900" id="nav-contacts" href="#contacts">
+          </span>
+          <span
+            id="nav-contacts"
+            className="text-sm font-semibold leading-6 text-gray-900"
+            onClick={() => {
+              window.scrollTo({
+                top: contactsOffset - (fixedNavState ? 105 : 79.5),
+                behavior: 'smooth'
+              })
+            }}
+          >
             Contacts
             <div className='sparkle'></div>
-          </a>
+          </span>
         </Popover.Group>
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">

@@ -23,7 +23,15 @@ body {
       rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb))
 }
 
-.header-fixed {
+header {
+  z-index: 2;
+}
+
+header span {
+  cursor: pointer
+}
+
+header.header-fixed {
   position: fixed;
   width: 100%
 }

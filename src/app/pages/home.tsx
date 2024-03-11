@@ -1,11 +1,29 @@
 "use client"
 
-import React from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { Timeline, TimelineItem } from '@/components';
 import { useLocalStorage } from '@uidotdev/usehooks';
 
 const Home = () => {
   const [fixedNavState] = useLocalStorage('fixed-nav', '');
+  const [_pg, setPlaygroundOffset] = useLocalStorage('playground-offset', 0);
+  const [_ct, setContactsOffset] = useLocalStorage('contacts-offset', 0);
+  const distPlaygroundFromTop = useMemo(() => {
+    const result = window.scrollY + (document.getElementById('playground')?.getBoundingClientRect().top ?? 0);
+    return result;
+  }, [window.scrollY, document.getElementById('playground')]);
+  const distContactsFromTop = useMemo(() => {
+    const result = window.scrollY + (document.getElementById('contacts')?.getBoundingClientRect().top ?? 0);
+    return result;
+  }, [window.scrollY, document.getElementById('playground')]);
+
+  useEffect(() => {
+    setPlaygroundOffset(distPlaygroundFromTop)
+  }, [distPlaygroundFromTop]);
+
+  useEffect(() => {
+    setContactsOffset(distContactsFromTop)
+  }, [distContactsFromTop]);
 
   return (
     <div style={{ padding: fixedNavState ? '2.49em 0' : '0' }}>
@@ -17,7 +35,10 @@ const Home = () => {
           <TimelineItem position="right" title="2022" subtitle="lorem ipsum" />
         </Timeline>
       </div>
-      <div id="playground" className="section">
+      <div
+        id="playground"
+        className="section"
+      >
         <p>Playground link n thumbnail section</p>
         <p>Hello Playground</p>
         <p>Hello Playground</p>
