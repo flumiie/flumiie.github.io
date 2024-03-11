@@ -33,7 +33,8 @@ header span {
 
 header.header-fixed {
   position: fixed;
-  width: 100%
+  width: 100%;
+  animation: header-show 0.25s ease
 }
 
 .shift-content {
@@ -97,5 +98,15 @@ header.header-fixed {
 
   100% {
     background-position-x: 1810px
+  }
+}
+
+@keyframes header-show {
+  0% {
+    top: -90px
+  }
+
+  100% {
+    top: 0
   }
 }
