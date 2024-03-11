@@ -1,32 +1,14 @@
 "use client"
 
-import React, { useCallback, useEffect, useState } from 'react'
+import React from 'react'
 import { Timeline, TimelineItem } from '@/components';
+import { useLocalStorage } from '@uidotdev/usehooks';
 
 const Home = () => {
-  const [scrollY, setScrollY] = useState(0);
-  const [showFixedNav, setShowFixedNav] = useState(false)
-
-  const onScroll = useCallback(() => {
-    const { scrollY } = window;
-    setScrollY(window.scrollY);
-  }, []);
-
-  useEffect(() => {
-    //add eventlistener to window
-    window.addEventListener("scroll", onScroll, { passive: true });
-    // remove event on unmount to prevent a memory leak with the cleanup
-    return () => {
-      window.removeEventListener("scroll", onScroll, { passive: true });
-    }
-  }, []);
-
-  useEffect(() => {
-    setShowFixedNav(scrollY > window.innerHeight / 2);
-  }, [scrollY])
+  const [fixedNavState] = useLocalStorage('fixed-nav', '');
 
   return (
-    <div>
+    <div style={{ padding: fixedNavState ? '2.49em 0' : '0' }}>
       <div id="works" className="section">
         <Timeline>
           <TimelineItem position="left" title="2018" subtitle="lorem ipsum" />

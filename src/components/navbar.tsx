@@ -1,8 +1,9 @@
 "use client"
 
-import { useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Dialog, Popover } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { useLocalStorage } from '@uidotdev/usehooks'
 
 // const items: DropdownItems = [
 //   { name: 'Works', description: 'Most of what I\'ve worked on', href: '#', icon: SquaresPlusIcon },
@@ -10,10 +11,32 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 // ]
 
 const Navbar = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+  const [fixedNavState, setFixedNavState] = useLocalStorage('fixed-nav', '');
+
+  const onScroll = useCallback(() => {
+    setScrollY(window.scrollY);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll, { passive: true });
+    }
+  }, []);
+
+  useEffect(() => {
+    const scrolledHalfway = scrollY > window.innerHeight / 2
+    if (scrolledHalfway) {
+      setFixedNavState('header-fixed');
+    } else {
+      setFixedNavState('');
+    }
+  }, [scrollY])
 
   return (
-    <header className="bg-white">
+    <header className={`bg-white ${fixedNavState}`}>
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">

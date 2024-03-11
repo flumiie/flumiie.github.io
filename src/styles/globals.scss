@@ -23,6 +23,15 @@ body {
       rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb))
 }
 
+.header-fixed {
+  position: fixed;
+  width: 100%
+}
+
+.shift-content {
+  margin: 2em 0 0 0;
+}
+
 #popover-panel .group {
   transition: background 0.2s ease
 }
