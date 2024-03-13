@@ -22,9 +22,10 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    window.addEventListener("scroll", onScroll, { passive: true });
+    const opts: AddEventListenerOptions & EventListenerOptions = { passive: true };
+    window.addEventListener("scroll", onScroll, opts);
     return () => {
-      window.removeEventListener("scroll", onScroll, { passive: true });
+      window.removeEventListener("scroll", onScroll, opts);
     }
   }, []);
 
@@ -77,7 +78,7 @@ const Navbar = () => {
             className="text-sm font-semibold leading-6 text-gray-900"
             onClick={() => {
               window.scrollTo({
-                top: playgroundOffset - (fixedNavState ? 105 : 79.5),
+                top: playgroundOffset - (fixedNavState ? 77 : 78),
                 behavior: 'smooth'
               })
             }}
@@ -90,7 +91,7 @@ const Navbar = () => {
             className="text-sm font-semibold leading-6 text-gray-900"
             onClick={() => {
               window.scrollTo({
-                top: contactsOffset - (fixedNavState ? 105 : 79.5),
+                top: contactsOffset - (fixedNavState ? 77 : 78),
                 behavior: 'smooth'
               })
             }}
