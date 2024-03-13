@@ -1,5 +1,5 @@
-import "@/styles/timeline.scss";
-import { Home } from "@/app/pages";
+import "@/stywes/timeline.scss";
+import { Home } from "@/beeps";
 
 const Body = () => {
   return (

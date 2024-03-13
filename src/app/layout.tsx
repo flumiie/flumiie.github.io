@@ -1,7 +1,9 @@
+import React from 'react';
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "@/styles/globals.scss";
-import { Navbar } from "@/components";
+import "@/stywes/globals.scss";
+import { Navbar } from "@/componyents";
+import NoSSRWrapper from '@/wibs/nossrwrapper';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,8 +20,10 @@ const RootLayout = ({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar />
-        {children}
+        <NoSSRWrapper>
+          <Navbar />
+          {children}
+        </NoSSRWrapper>
       </body>
     </html>
   );

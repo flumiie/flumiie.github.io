@@ -1,7 +1,7 @@
 "use client"
 
-import React, { useEffect, useMemo, useState } from 'react'
-import { Timeline, TimelineItem } from '@/components';
+import React, { useEffect, useMemo } from 'react'
+import { Timeline, TimelineItem } from '@/componyents';
 import { useLocalStorage } from '@uidotdev/usehooks';
 
 const Home = () => {

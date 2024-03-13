@@ -258,6 +258,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-no-ssr@^1.1.7":
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/@types/react-no-ssr/-/react-no-ssr-1.1.7.tgz#b0423205dffeb03e4420d2e49c560f224bbf5bbf"
+  integrity sha512-ccIthMjeaplgCSv5hNvMsP27RVYpga5E5Nog7nkNaMLkvw3Q4wfVHtJPel/SisNVoXr/6mI8O/gv8A58maipsA==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react@*", "@types/react@^18":
   version "18.2.64"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-18.2.64.tgz#3700fbb6b2fa60a6868ec1323ae4cbd446a2197d"
