@@ -27,6 +27,9 @@ const Home = () => {
 
   return (
     <div style={{ padding: fixedNavState ? '80px 0' : '0' }}>
+      <div id="playground" className="section">
+        <div></div>
+      </div>
       <div id="works" className="section">
         <Timeline>
           <TimelineItem position="left" title="2018" subtitle="lorem ipsum" />
@@ -34,45 +37,6 @@ const Home = () => {
           <TimelineItem position="left" title="2020" subtitle="lorem ipsum" />
           <TimelineItem position="right" title="2022" subtitle="lorem ipsum" />
         </Timeline>
-      </div>
-      <div id="playground" className="section">
-        <p>Playground link n thumbnail section</p>
-        <p>Hello Playground</p>
-        <p>Hello Playground</p>
-        <p>Hello Playground</p>
-        <p>Hello Playground</p>
-        <p>Hello Playground</p>
-        <p>Hello Playground</p>
-        <p>Hello Playground</p>
-        <p>Hello Playground</p>
-        <p>Hello Playground</p>
-        <p>Hello Playground</p>
-        <p>Hello Playground</p>
-        <p>Hello Playground</p>
-        <p>Hello Playground</p>
-        <p>Hello Playground</p>
-        <p>Hello Playground</p>
-        <p>Hello Playground</p>
-        <p>Hello Playground</p>
-        <p>Hello Playground</p>
-        <p>Hello Playground</p>
-        <p>Hello Playground</p>
-        <p>Hello Playground</p>
-        <p>Hello Playground</p>
-        <p>Hello Playground</p>
-        <p>Hello Playground</p>
-        <p>Hello Playground</p>
-        <p>Hello Playground</p>
-        <p>Hello Playground</p>
-        <p>Hello Playground</p>
-        <p>Hello Playground</p>
-        <p>Hello Playground</p>
-        <p>Hello Playground</p>
-        <p>Hello Playground</p>
-        <p>Hello Playground</p>
-        <p>Hello Playground</p>
-        <p>Hello Playground</p>
-        <p>Hello Playground</p>
       </div>
       <div id="contacts" className="section">
         <p>Contacts section</p>

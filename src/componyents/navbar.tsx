@@ -61,19 +61,6 @@ const Navbar = () => {
 
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
           <span
-            id="nav-works"
-            className="text-sm font-semibold leading-6 text-gray-900"
-            onClick={() => {
-              window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-              });
-            }}
-          >
-            Works
-            <div className="sparkle"></div>
-          </span>
-          <span
             id="nav-playground"
             className="text-sm font-semibold leading-6 text-gray-900"
             onClick={() => {
@@ -84,6 +71,19 @@ const Navbar = () => {
             }}
           >
             Playground
+            <div className="sparkle"></div>
+          </span>
+          <span
+            id="nav-works"
+            className="text-sm font-semibold leading-6 text-gray-900"
+            onClick={() => {
+              window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+              });
+            }}
+          >
+            Works
             <div className="sparkle"></div>
           </span>
           <span
@@ -126,6 +126,18 @@ const Navbar = () => {
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
                 <span
+                  id="nav-mobile-playground"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-rose-200"
+                  onClick={() => {
+                    window.scrollTo({
+                      top: playgroundOffset - (fixedNavState ? 77 : 78),
+                      behavior: 'smooth'
+                    })
+                  }}
+                >
+                  Playground
+                </span>
+                <span
                   id="nav-mobile-works"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-rose-200"
                   onClick={() => {
@@ -137,18 +149,6 @@ const Navbar = () => {
                 >
                   Works
                   <div className="sparkle"></div>
-                </span>
-                <span
-                  id="nav-mobile-playground"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-rose-200"
-                  onClick={() => {
-                    window.scrollTo({
-                      top: playgroundOffset - (fixedNavState ? 77 : 78),
-                      behavior: 'smooth'
-                    })
-                  }}
-                >
-                  Playground
                 </span>
                 <span
                   id="nav-mobile-contacts"

@@ -58,16 +58,16 @@ header.header-fixed {
   transition: opacity 0.075s ease
 }
 
-#nav-works .sparkle {
-  width: 870px
-}
-
 #nav-playground .sparkle {
   width: 930px
 }
 
-#nav-works:hover .sparkle,
+#nav-works .sparkle {
+  width: 870px
+}
+
 #nav-playground:hover .sparkle,
+#nav-works:hover .sparkle,
 #nav-contacts:hover .sparkle {
   opacity: 1
 }
@@ -76,8 +76,8 @@ header.header-fixed {
   padding: 26px 0
 }
 
-#playground {
-  background-color: white;
+#works {
+  background-color: rgb(255, 241, 249);
   color: black;
 }
 
