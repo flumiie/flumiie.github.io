@@ -1,9 +1,9 @@
 import React from 'react';
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "@/stywes/globals.scss";
-import { Navbar } from "@/componyents";
-import NoSSRWrapper from '@/wibs/nossrwrapper';
+import "@/app/stywes/globals.scss";
+import { Navbar } from "@/app/componyents";
+import NoSSRWrapper from '@/app/wibs/nossrwrapper';
 
 const inter = Inter({ subsets: ["latin"] });
 

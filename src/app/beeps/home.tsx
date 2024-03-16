@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useEffect, useMemo } from 'react'
-import { Timeline, TimelineItem } from '@/componyents';
+import { Timeline, TimelineItem } from '@/app/componyents';
 import { useLocalStorage } from '@uidotdev/usehooks';
 
 const Home = () => {

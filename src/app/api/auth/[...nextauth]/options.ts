@@ -23,6 +23,10 @@ const credOpts: ReturnType<typeof Credentials> = {
     }
   },
   async authorize(credentials) {
+    /**
+     * Only for dev test,
+     * TODO: Use real data & not in plain text 
+     */ 
     const user = {
       id: "1",
       name: "Fer",
