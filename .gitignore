@@ -18,6 +18,8 @@ backup.zip
 .env.production.local
 .vscode/
 .next/
+.open-next/
+out/
 
 npm-debug.log*
 yarn-debug.log*
