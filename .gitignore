@@ -9,6 +9,9 @@
 # production
 /build
 
+# excluding github actions I'm deploying it to AWS instead
+.github/workflows
+
 # misc
 backup.zip
 .DS_Store
