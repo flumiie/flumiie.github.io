@@ -1,10 +1,11 @@
 import "@/app/stywes/timeline.scss";
-import { Home } from "@/app/beeps";
+import { Home, StudentManagement } from "@/app/beeps";
 
 const Body = () => {
   return (
     <main className="content-container">
       <Home />
+      <StudentManagement />
     </main>
   );
 }

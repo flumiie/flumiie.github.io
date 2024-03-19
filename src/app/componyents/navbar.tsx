@@ -99,6 +99,13 @@ const Navbar = () => {
             Contacts
             <div className='sparkle'></div>
           </span>
+          <span
+            id="nav-students"
+            className="text-sm font-semibold leading-6 text-gray-900"
+          >
+            <a href="/students">Students</a>
+            <div className='sparkle'></div>
+          </span>
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <a id="nav-login" href="#" className="text-sm font-semibold leading-6 text-gray-900">
