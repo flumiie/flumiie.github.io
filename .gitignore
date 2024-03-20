@@ -29,3 +29,9 @@ yarn-debug.log*
 yarn-error.log*
 
 .cert
+
+# sst
+.sst
+
+# open-next
+.open-next
