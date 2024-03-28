@@ -1,7 +1,9 @@
-# See https://help.github.com/ignore-files/ for more about ignoring files.
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
 /node_modules
+/.pnp
+.pnp.js
 
 # testing
 /coverage
@@ -9,29 +11,13 @@
 # production
 /build
 
-# excluding github actions I'm deploying it to AWS instead
-.github/workflows
-
 # misc
-backup.zip
 .DS_Store
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
-.vscode/
-.next/
-.open-next/
-out/
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-.cert
-
-# sst
-.sst
-
-# open-next
-.open-next
