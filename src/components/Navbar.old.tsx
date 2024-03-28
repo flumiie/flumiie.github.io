@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Dialog, Popover } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import { useLocalStorage } from '@uidotdev/usehooks'
+// import { useLocalStorage } from '@uidotdev/usehooks'
 
 // const items: DropdownItems = [
 //   { name: 'Works', description: 'Most of what I\'ve worked on', href: '#', icon: SquaresPlusIcon },
@@ -11,9 +11,14 @@ import { useLocalStorage } from '@uidotdev/usehooks'
 export default () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
-  const [fixedNavState, setFixedNavState] = useLocalStorage('fixed-nav', '');
-  const [playgroundOffset] = useLocalStorage('playground-offset', 0);
-  const [contactsOffset] = useLocalStorage('contacts-offset', 0);
+
+  // TODO: Replace useLocalStorage with Dexie
+  const fixedNavState = null;
+  const playgroundOffset = 0;
+  const contactsOffset = 0;
+  // const [fixedNavState, setFixedNavState] = useLocalStorage('fixed-nav', '');
+  // const [playgroundOffset] = useLocalStorage('playground-offset', 0);
+  // const [contactsOffset] = useLocalStorage('contacts-offset', 0);
 
   const onScroll = useCallback(() => {
     setScrollY(window.scrollY);
@@ -30,9 +35,9 @@ export default () => {
   useEffect(() => {
     const halfwayFirstSection = scrollY > (document.getElementById('works')?.offsetHeight ?? 0) / 2
     if (halfwayFirstSection) {
-      setFixedNavState('header-fixed');
+      // setFixedNavState('header-fixed');
     } else {
-      setFixedNavState('');
+      // setFixedNavState('');
     }
   }, [scrollY])
 

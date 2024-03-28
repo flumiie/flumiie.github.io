@@ -1,11 +1,14 @@
 import React, { useEffect, useMemo } from 'react'
 import { Timeline, TimelineItem } from '../components';
-import { useLocalStorage } from '@uidotdev/usehooks';
+// import { useLocalStorage } from '@uidotdev/usehooks';
 
 export default () => {
-  const [fixedNavState] = useLocalStorage('fixed-nav', '');
-  const [_pg, setPlaygroundOffset] = useLocalStorage('playground-offset', 0);
-  const [_ct, setContactsOffset] = useLocalStorage('contacts-offset', 0);
+
+  // TODO: Replace useLocalStorage with Dexie
+  const fixedNavState = null;
+  // const [fixedNavState] = useLocalStorage('fixed-nav', '');
+  // const [_pg, setPlaygroundOffset] = useLocalStorage('playground-offset', 0);
+  // const [_ct, setContactsOffset] = useLocalStorage('contacts-offset', 0);
   const distPlaygroundFromTop = useMemo(() => {
     const result = window.scrollY + (document.getElementById('playground')?.getBoundingClientRect().top ?? 0);
     return result;
@@ -15,13 +18,13 @@ export default () => {
     return result;
   }, [window.scrollY, document.getElementById('playground')]);
 
-  useEffect(() => {
-    setPlaygroundOffset(distPlaygroundFromTop)
-  }, [distPlaygroundFromTop]);
+  // useEffect(() => {
+  //   setPlaygroundOffset(distPlaygroundFromTop)
+  // }, [distPlaygroundFromTop]);
 
-  useEffect(() => {
-    setContactsOffset(distContactsFromTop)
-  }, [distContactsFromTop]);
+  // useEffect(() => {
+  //   setContactsOffset(distContactsFromTop)
+  // }, [distContactsFromTop]);
 
   return (
     <div style={{ padding: fixedNavState ? '80px 0' : '0' }}>
