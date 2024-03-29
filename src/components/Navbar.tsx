@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { Dialog, Popover } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { useLocalStorage } from '@uidotdev/usehooks'
+import '../assets/styles/navbar.scss'
 
 // const items: DropdownItems = [
 //   { name: 'Works', description: 'Most of what I\'ve worked on', href: '#', icon: SquaresPlusIcon },
@@ -14,6 +15,7 @@ const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [fixedNavState, setFixedNavState] = useLocalStorage('fixed-nav', '');
+  const [playgroundOffset] = useLocalStorage('playground-offset', 0);
   const [worksOffset] = useLocalStorage('works-offset', 0);
   const [technicalOffset] = useLocalStorage('technical-offset', 0);
   const [contactsOffset] = useLocalStorage('contacts-offset', 0);
@@ -62,13 +64,26 @@ const Navbar = () => {
 
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
           <span
-            id="nav-playground"
+            id="nav-introduction"
             className="text-sm font-semibold leading-6 text-gray-900"
             onClick={() => {
               window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
               })
+            }}
+          >
+            Intro
+            <div className="sparkle"></div>
+          </span>
+          <span
+            id="nav-playground"
+            className="text-sm font-semibold leading-6 text-gray-900"
+            onClick={() => {
+              window.scrollTo({
+                top: playgroundOffset - (fixedNavState ? 77 : 78),
+                behavior: 'smooth'
+              });
             }}
           >
             Playground
@@ -140,8 +155,8 @@ const Navbar = () => {
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
                 <span
-                  id="nav-mobile-playground"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-rose-200"
+                  id="nav-mobile-introduction"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 nav-mobile text-gray-900 hover:bg-rose-200"
                   onClick={() => {
                     window.scrollTo({
                       top: 0,
@@ -149,11 +164,23 @@ const Navbar = () => {
                     });
                   }}
                 >
+                  Introduction
+                </span>
+                <span
+                  id="nav-mobile-playground"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 nav-mobile text-gray-900 hover:bg-rose-200"
+                  onClick={() => {
+                    window.scrollTo({
+                      top: playgroundOffset - (fixedNavState ? 77 : 78),
+                      behavior: 'smooth'
+                    })
+                  }}
+                >
                   Playground
                 </span>
                 <span
-                  id="nav-mobile-technical"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-rose-200"
+                  id="nav-mobile-works"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 nav-mobile text-gray-900 hover:bg-rose-200"
                   onClick={() => {
                     window.scrollTo({
                       top: worksOffset - (fixedNavState ? 77 : 78),
@@ -161,25 +188,23 @@ const Navbar = () => {
                     })
                   }}
                 >
-                  Technical
-                  <div className="sparkle"></div>
+                  Works
                 </span>
                 <span
                   id="nav-mobile-works"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-rose-200"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 nav-mobile text-gray-900 hover:bg-rose-200"
                   onClick={() => {
                     window.scrollTo({
-                      top: worksOffset - (fixedNavState ? 77 : 78),
+                      top: technicalOffset - (fixedNavState ? 77 : 78),
                       behavior: 'smooth'
                     })
                   }}
                 >
                   Technical
-                  <div className="sparkle"></div>
                 </span>
                 <span
                   id="nav-mobile-contacts"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-rose-200"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 nav-mobile text-gray-900 hover:bg-rose-200"
                   onClick={() => {
                     window.scrollTo({
                       top: contactsOffset - (fixedNavState ? 77 : 78),

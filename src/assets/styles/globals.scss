@@ -76,47 +76,20 @@ header.header-fixed {
   transition: background 0.2s ease
 }
 
-.sparkle {
-  opacity: 0;
-  position: absolute;
-  width: 906px;
-  height: 202px;
-  transform: scale(0.5);
-  margin: -8em 0 0 -19.7em;
-  clip-path: inset(0 600px 0 0 round 50px);
-  background: url('../images/sparkle.sprite.png');
-  animation: sparkle-sprite 1s steps(3) infinite;
-  transition: opacity 0.075s ease
-}
-
-#nav-playground .sparkle {
-  width: 930px
-}
-
-#nav-works .sparkle {
-  width: 870px
-}
-
-#nav-technical .sparkle {
-  width: 870px
-}
-
-#nav-playground:hover .sparkle,
-#nav-works:hover .sparkle,
-#nav-technical:hover .sparkle,
-#nav-contacts:hover .sparkle,
-#nav-login:hover .sparkle {
-  opacity: 1
-}
-
 .section {
   padding: 26px 0
 }
 
+#introduction,
 #works,
 #contacts {
   background-color: rgb(255, 241, 249);
   color: black;
+}
+
+#playground {
+  display: flex;
+  height: calc(100vh - 80px);
 }
 
 @layer utilities {

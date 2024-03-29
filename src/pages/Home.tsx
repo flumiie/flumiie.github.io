@@ -5,14 +5,17 @@ import { useLocalStorage } from '@uidotdev/usehooks';
 
 const Home = () => {
   const [fixedNavState] = useLocalStorage('fixed-nav', '');
+  const [_pl, setPlaygroundOffset] = useLocalStorage('playground-offset', 0);
   const [_wo, setWorksOffset] = useLocalStorage('works-offset', 0);
   const [_te, setTechnicalOffset] = useLocalStorage('technical-offset', 0);
   const [_co, setContactsOffset] = useLocalStorage('contacts-offset', 0);
 
   useEffect(() => {
+    const distPlaygroundFromTop = window.scrollY + (document.getElementById('playground')?.getBoundingClientRect().top ?? 0);
     const distWorksFromTop = window.scrollY + (document.getElementById('works')?.getBoundingClientRect().top ?? 0);
     const distTechnicalFromTop = window.scrollY + (document.getElementById('technical')?.getBoundingClientRect().top ?? 0);
     const distContactsFromTop = window.scrollY + (document.getElementById('contacts')?.getBoundingClientRect().top ?? 0);
+    setPlaygroundOffset(distPlaygroundFromTop)
     setWorksOffset(distWorksFromTop)
     setTechnicalOffset(distTechnicalFromTop)
     setContactsOffset(distContactsFromTop)
@@ -20,6 +23,9 @@ const Home = () => {
 
   return (
     <div style={{ padding: fixedNavState ? '80px 0' : '0' }}>
+      <div id="introduction" className="section">
+        <div></div>
+      </div>
       <div id="playground" className="section">
         <div></div>
       </div>

@@ -16,6 +16,10 @@
   margin: 1rem;
 }
 
+.nav-mobile {
+  cursor: pointer;
+}
+
 .nav__logo {
   color: var(--first-color);
   transition: color 0.4s;
@@ -64,6 +68,44 @@
 
 .show-menu {
   right: 0;
+}
+
+.sparkle {
+  opacity: 0;
+  position: absolute;
+  width: 906px;
+  height: 202px;
+  transform: scale(0.5);
+  margin: -8em 0 0 -19.7em;
+  clip-path: inset(0 600px 0 0 round 50px);
+  background: url('../images/sparkle.sprite.png');
+  animation: sparkle-sprite 1s steps(3) infinite;
+  transition: opacity 0.075s ease
+}
+
+#nav-introduction .sparkle {
+  width: 870px;
+}
+
+#nav-playground .sparkle {
+  width: 930px
+}
+
+#nav-works .sparkle {
+  width: 870px
+}
+
+#nav-technical .sparkle {
+  width: 920px
+}
+
+#nav-introduction:hover .sparkle,
+#nav-playground:hover .sparkle,
+#nav-works:hover .sparkle,
+#nav-technical:hover .sparkle,
+#nav-contacts:hover .sparkle,
+#nav-login:hover .sparkle {
+  opacity: 1
 }
 
 @media screen and (max-width: 1150px) {
