@@ -1,30 +1,22 @@
-import React, { useEffect, useMemo } from 'react'
+import { useEffect } from 'react';
 import { Timeline, TimelineItem } from '../components';
-// import { useLocalStorage } from '@uidotdev/usehooks';
+import "../assets/styles/timeline.scss"
+import { useLocalStorage } from '@uidotdev/usehooks';
 
-export default () => {
+const Home = () => {
+  const [fixedNavState] = useLocalStorage('fixed-nav', '');
+  const [_wo, setWorksOffset] = useLocalStorage('works-offset', 0);
+  const [_te, setTechnicalOffset] = useLocalStorage('technical-offset', 0);
+  const [_co, setContactsOffset] = useLocalStorage('contacts-offset', 0);
 
-  // TODO: Replace useLocalStorage with Dexie
-  const fixedNavState = null;
-  // const [fixedNavState] = useLocalStorage('fixed-nav', '');
-  // const [_pg, setPlaygroundOffset] = useLocalStorage('playground-offset', 0);
-  // const [_ct, setContactsOffset] = useLocalStorage('contacts-offset', 0);
-  const distPlaygroundFromTop = useMemo(() => {
-    const result = window.scrollY + (document.getElementById('playground')?.getBoundingClientRect().top ?? 0);
-    return result;
-  }, [window.scrollY, document.getElementById('playground')]);
-  const distContactsFromTop = useMemo(() => {
-    const result = window.scrollY + (document.getElementById('contacts')?.getBoundingClientRect().top ?? 0);
-    return result;
-  }, [window.scrollY, document.getElementById('playground')]);
-
-  // useEffect(() => {
-  //   setPlaygroundOffset(distPlaygroundFromTop)
-  // }, [distPlaygroundFromTop]);
-
-  // useEffect(() => {
-  //   setContactsOffset(distContactsFromTop)
-  // }, [distContactsFromTop]);
+  useEffect(() => {
+    const distWorksFromTop = window.scrollY + (document.getElementById('works')?.getBoundingClientRect().top ?? 0);
+    const distTechnicalFromTop = window.scrollY + (document.getElementById('technical')?.getBoundingClientRect().top ?? 0);
+    const distContactsFromTop = window.scrollY + (document.getElementById('contacts')?.getBoundingClientRect().top ?? 0);
+    setWorksOffset(distWorksFromTop)
+    setTechnicalOffset(distTechnicalFromTop)
+    setContactsOffset(distContactsFromTop)
+  }, [window.scrollY]);
 
   return (
     <div style={{ padding: fixedNavState ? '80px 0' : '0' }}>
@@ -38,6 +30,61 @@ export default () => {
           <TimelineItem position="left" title="2020" subtitle="lorem ipsum" />
           <TimelineItem position="right" title="2022" subtitle="lorem ipsum" />
         </Timeline>
+      </div>
+      <div id="technical" className="section">
+        <p>Technical section - prog languages etc...</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
+        <p>Hello technical</p>
       </div>
       <div id="contacts" className="section">
         <p>Contacts section</p>
@@ -97,3 +144,5 @@ export default () => {
     </div>
   )
 }
+
+export default Home;

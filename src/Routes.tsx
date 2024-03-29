@@ -1,18 +1,17 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes as DOMRoutes, Route } from "react-router-dom";
 import "./assets/styles/timeline.scss";
-import { Home, Layout, Students } from "./pages";
+import { Home, Layout } from "./pages";
 
-export default () => {
+const Routes = () => {
   return (
     <BrowserRouter>
-      <Routes>
+      <DOMRoutes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="students" element={<Students />} />
           {/* <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NoPage />} /> */}
         </Route>
-      </Routes>
+      </DOMRoutes>
     </BrowserRouter>
   )
   // return (
@@ -23,3 +22,5 @@ export default () => {
   //   </main>
   // );
 };
+
+export default Routes;

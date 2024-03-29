@@ -6,7 +6,7 @@ interface MenuItemProps {
   children: ReactNode | string;
 }
 
-export default (props: MenuItemProps) => {
+const MenuItem = (props: MenuItemProps) => {
   const [showSparkle, setShowSparkle] = useState(false)
 
   return (
@@ -20,7 +20,7 @@ export default (props: MenuItemProps) => {
       }}
     >
       <a
-        href="#"
+        href="/"
         className="text-sm font-semibold leading-6 text-gray-900"
       >
         {props.children}
@@ -29,3 +29,5 @@ export default (props: MenuItemProps) => {
     </div>
   )
 }
+
+export default MenuItem;

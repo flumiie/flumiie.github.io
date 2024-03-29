@@ -14,7 +14,7 @@ export interface DropdownProps {
   items: DropdownItems;
   id?: string;
 }
-export default (props: DropdownProps) => {
+const Dropdown = (props: DropdownProps) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -67,3 +67,5 @@ export default (props: DropdownProps) => {
     </div>
   )
 }
+
+export default Dropdown;

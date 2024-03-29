@@ -13,7 +13,7 @@ export interface DropdownProps {
   className?: string;
 }
 
-export default (props: DropdownProps) => {
+const Timeline = (props: DropdownProps) => {
   return (
     <div {...props} className="timeline">
       {props.children}
@@ -31,3 +31,5 @@ export const TimelineItem = (props: TimelineItemProps) => {
     </div>
   )
 }
+
+export default Timeline;

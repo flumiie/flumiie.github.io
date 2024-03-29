@@ -1,5 +1,4 @@
 import Home from "./Home";
-import Layout from "./Layout";
-import Students from "./Students";
+import Layout from "./Layout"; 
 
-export { Home, Layout, Students };
+export { Home, Layout };
