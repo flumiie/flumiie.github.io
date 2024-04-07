@@ -87,6 +87,12 @@ header.header-fixed {
   color: black;
 }
 
+#works br {
+  content: " ";
+  display: block;
+  margin: 0.6em 0
+}
+
 #playground {
   display: flex;
   height: calc(100vh - 80px);

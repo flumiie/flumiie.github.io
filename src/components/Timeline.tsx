@@ -1,10 +1,14 @@
 import React from 'react'
+import { Spacer } from '.';
 
 export type TimelineItemProps = {
   position: 'left' | 'right';
   title: string;
   subtitle: string;
+  children?: React.ReactNode;
   image?: string;
+  withDot?: boolean;
+  withSpacer?: boolean;
 }
 
 export interface DropdownProps {
@@ -23,10 +27,13 @@ const Timeline = (props: DropdownProps) => {
 
 export const TimelineItem = (props: TimelineItemProps) => {
   return (
-    <div className={`circle ${props.position}-arrow`}>
+    <div className={`${(props.withDot ?? true) ? 'circle' : 'without-circle'} ${props.position}-arrow`}>
       <div className="content">
-        <h2>{props.title}</h2>
+        <h2 style={{ fontWeight: 'bold' }}>{props.title}</h2>
         <p>{props.subtitle}</p>
+        {(props.withSpacer ?? true) ?
+          <Spacer width='100%' height={8} color='#bbb' /> : null}
+        {props.children}
       </div>
     </div>
   )

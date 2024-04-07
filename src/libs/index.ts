@@ -1,3 +1,4 @@
+import { GetTopOffset } from "./functs";
 import Typer from "./typewriter";
 
-export { Typer } 
+export { GetTopOffset, Typer };

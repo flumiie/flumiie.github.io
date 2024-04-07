@@ -10,12 +10,13 @@
   width: 1px;
   background-color: rgb(255, 0, 144);
   top: 20px;
-  bottom: 5em;
+  bottom: 11em;
   left: 50%;
   margin-left: -3px
 }
 
-.circle {
+.circle,
+.without-circle {
   padding: 10px 40px;
   position: relative;
   background-color: inherit;
@@ -30,6 +31,17 @@
   right: -10px;
   background-color: white;
   border: 5px solid rgb(255, 0, 144);
+  top: 18px;
+  border-radius: 20px;
+  z-index: 1
+}
+
+.without-circle::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -10px;
   top: 18px;
   border-radius: 20px;
   z-index: 1
@@ -56,6 +68,10 @@
   border-color: transparent transparent transparent white
 }
 
+.left-arrow.without-circle::before {
+  border-color: transparent
+}
+
 .right-arrow::before {
   content: " ";
   height: 0;
@@ -67,6 +83,10 @@
   border: medium solid white;
   border-width: 10px 10px 10px 0;
   border-color: transparent white transparent transparent
+}
+
+.right-arrow.without-circle::before {
+  border-color: transparent
 }
 
 .right-arrow::after {
@@ -86,7 +106,8 @@
     left: 31px
   }
 
-  .circle {
+  .circle,
+  .without-circle {
     width: 100%;
     padding-left: 70px;
     padding-right: 25px
