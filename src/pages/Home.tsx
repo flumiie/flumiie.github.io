@@ -29,11 +29,11 @@ const Home = () => {
       </div>
       <div id="works" className="section">
         <Timeline>
-          <TimelineItem position="left" title="May 2023 - Feb 2024 · 10 mos" subtitle="WebGL & GameMaker · Self-employed">
+          <TimelineItem position="left" title="WebGL & GameMaker · Self-employed" subtitle="May 2023 - Feb 2024 · 10 mos">
             <p>Indie development.
               Also a career break for caregiving someone in need</p>
           </TimelineItem>
-          <TimelineItem position="right" title="Aug 2019 - Nov 2022 · 3 yrs 4 mos" subtitle="Rukita · Full-time">
+          <TimelineItem position="right" title="Rukita · Full-time" subtitle="Aug 2019 - Nov 2022 · 3 yrs 4 mos">
             <p>Create & maintain Tenant App, an all-in-one solution managements such as:<br />
               • Monthly payments<br />
               • Room services & Addons<br />
@@ -44,29 +44,29 @@ const Home = () => {
               • Profile managements
             </p>
           </TimelineItem>
-          <TimelineItem position="right" title="Aug 2018 - Mar 2021 · 2 yrs 8 mos" subtitle="Benua Softworks · Part-time">
+          <TimelineItem position="right" title="Benua Softworks · Part-time" subtitle="Aug 2018 - Mar 2021 · 2 yrs 8 mos">
             <p>• Create & apply a web template, with the addition of "Grav CMS" (HTML, CSS, & JS)<br />
               • Create a Grav CMS plugin for managing all of the website contents right from the plugin itself (PHP, TWIG, & YAML)<br />
               • Create & apply a web template for Docs / Assets Page, with the addition of Flextype CMS (PHP, HTML, CSS, & JS)<br />
               • Maintenance if needed. This is not frequent.</p>
           </TimelineItem>
-          <TimelineItem position="left" title="Feb 2019 - Aug 2019 · 7 mos" subtitle="Prudential Indonesia · Full-time">
+          <TimelineItem position="left" title="Prudential Indonesia · Full-time" subtitle="Feb 2019 - Aug 2019 · 7 mos">
             <p>• Working on PruForce App, specifically using AngularJS & Ionic, that is, adding features & maintenances<br />
               • SQL Database managements</p>
           </TimelineItem>
-          <TimelineItem position="right" title="Jun 2016 - Jan 2018 · 1 yr 8 mos" subtitle="Freelance Web Developer">
+          <TimelineItem position="right" title="Freelance Web Developer" subtitle="Jun 2016 - Jan 2018 · 1 yr 8 mos">
             <p>• WordPress & Templates<br />
               • Laravel
             </p>
           </TimelineItem>
-          <TimelineItem position="right" title="Jun 2016 - Jul 2017 · 1 yr 2 mos" subtitle="Freelance Web Designer" withDot={false}>
+          <TimelineItem position="right" title="Freelance Web Designer" subtitle="Jun 2016 - Jul 2017 · 1 yr 2 mos" withDot={false}>
             <p>WordPress and HTML Templates</p>
           </TimelineItem>
-          <TimelineItem position="left" title="Aug 2017 - Nov 2017 · 4 mos" subtitle="PT VeIT Solusi Indonesia · Internship">
+          <TimelineItem position="left" title="PT VeIT Solusi Indonesia · Internship" subtitle="Aug 2017 - Nov 2017 · 4 mos">
             <p>WordPress Plugins & Templates (PHP)<br />
             </p>
           </TimelineItem>
-          <TimelineItem position="left" title="Aug 2017 - Nov 2017 · 4 mos" subtitle="Kreacio Media · Internship" withDot={false} withSpacer={false} />
+          <TimelineItem position="left" title="Kreacio Media · Internship" subtitle="Aug 2017 - Nov 2017 · 4 mos" withDot={false} withSpacer={false} />
         </Timeline>
       </div>
       <div id="technical" className="section">

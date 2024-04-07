@@ -30,7 +30,7 @@ export const TimelineItem = (props: TimelineItemProps) => {
     <div className={`${(props.withDot ?? true) ? 'circle' : 'without-circle'} ${props.position}-arrow`}>
       <div className="content">
         <h2 style={{ fontWeight: 'bold' }}>{props.title}</h2>
-        <p>{props.subtitle}</p>
+        <p style={{ fontSize: 13.5 }}>{props.subtitle}</p>
         {(props.withSpacer ?? true) ?
           <Spacer width='100%' height={8} color='#bbb' /> : null}
         {props.children}
