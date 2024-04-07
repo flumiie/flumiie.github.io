@@ -56,8 +56,6 @@ const Home = () => {
           </TimelineItem>
           <TimelineItem position="right" title="Jun 2016 - Jan 2018 · 1 yr 8 mos" subtitle="Freelance Web Developer">
             <p>• WordPress & Templates<br />
-              • Laravel<br />
-              • WordPress & Templates<br />
               • Laravel
             </p>
           </TimelineItem>
