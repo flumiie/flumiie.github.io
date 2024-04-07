@@ -34,8 +34,8 @@ const Navbar = () => {
   }, [onScroll]);
 
   useEffect(() => {
-    const halfwayFirstSection = scrollY > (document.getElementById('works')?.offsetHeight ?? 0) / 2
-    if (halfwayFirstSection) {
+    const showNavbarOnScroll = scrollY > (document.getElementById('works')?.offsetHeight ?? 0) / 5
+    if (showNavbarOnScroll) {
       setFixedNavState('header-fixed');
     } else {
       setFixedNavState('');
@@ -66,7 +66,7 @@ const Navbar = () => {
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
           <span
             id="nav-introduction"
-            className="text-sm font-semibold leading-6 text-gray-900"
+            className={`text-sm font-semibold leading-6 ${window.scrollY < playgroundOffset - (window.screen.height / 3) ? 'text-pink-400' : 'text-gray-900'}`}
             onClick={() => {
               scrollTo({
                 top: 0,
@@ -79,7 +79,7 @@ const Navbar = () => {
           </span>
           <span
             id="nav-playground"
-            className="text-sm font-semibold leading-6 text-gray-900"
+            className={`text-sm font-semibold leading-6 ${window.scrollY >= playgroundOffset - (window.screen.height / 3) && window.scrollY < worksOffset - (window.screen.height / 3) ? 'text-pink-400' : 'text-gray-900'}`}
             onClick={() => {
               scrollTo({
                 top: playgroundOffset - (fixedNavState ? 77 : 78),
@@ -92,7 +92,7 @@ const Navbar = () => {
           </span>
           <span
             id="nav-works"
-            className="text-sm font-semibold leading-6 text-gray-900"
+            className={`text-sm font-semibold leading-6 ${window.scrollY >= worksOffset - (window.screen.height / 3) && window.scrollY < technicalOffset - (window.screen.height / 3) ? 'text-pink-400' : 'text-gray-900'}`}
             onClick={() => {
               scrollTo({
                 top: worksOffset - (fixedNavState ? 77 : 78),
@@ -105,7 +105,7 @@ const Navbar = () => {
           </span>
           <span
             id="nav-technical"
-            className="text-sm font-semibold leading-6 text-gray-900"
+            className={`text-sm font-semibold leading-6 ${window.scrollY >= technicalOffset - (window.screen.height / 3) && window.scrollY < contactsOffset - (window.screen.height / 3) ? 'text-pink-400' : 'text-gray-900'}`}
             onClick={() => {
               scrollTo({
                 top: technicalOffset - (fixedNavState ? 77 : 78),
@@ -118,7 +118,7 @@ const Navbar = () => {
           </span>
           <span
             id="nav-contacts"
-            className="text-sm font-semibold leading-6 text-gray-900"
+            className={`text-sm font-semibold leading-6 ${window.scrollY >= contactsOffset - (window.screen.height / 3) ? 'text-pink-400' : 'text-gray-900'}`}
             onClick={() => {
               scrollTo({
                 top: contactsOffset - (fixedNavState ? 77 : 78),
