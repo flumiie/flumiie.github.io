@@ -11,10 +11,17 @@ const UserData = {
     Home: {
       icon: "house-fill",
       tabs: {
-        "My Carrd": {
-          icon: "house-fill",
+        "Under Development": {
+          icon: "cone-striped",
           left: {
-            header: "Check out my Carrd",
+            header: "Under Development",
+            text: `Hi, this site is currently under development. I'm currently working on it. Stay tuned!`,
+          },
+        },
+        "My Carrd": {
+          icon: "person-fill",
+          left: {
+            header: "My Carrd",
             text: `Hewwo there! You might've come from my carrd (or not) :3 You can check it out here otherwise:\nhttps://flumi.carrd.co`,
           },
           right: {
@@ -29,7 +36,7 @@ const UserData = {
     "Price List": {
       icon: "book-fill",
       tabs: {
-        One: {
+        "Context one: $100": {
           icon: "star-fill",
           left: {
             header: "Context one: $100",
@@ -41,7 +48,7 @@ const UserData = {
             image: "carrd-preview.png",
           },
         },
-        Two: {
+        "Context two: $200": {
           icon: "star-fill",
           left: {
             header: "Context two: $200",
