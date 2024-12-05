@@ -1,0 +1,104 @@
+#page-area {
+  margin: 0 auto;
+  width: 1200px;
+  transition: opacity 0.15s;
+}
+
+#page-header {
+  color: #4e424c;
+  text-shadow: 8px 8px #a392a2;
+  letter-spacing: 3px;
+  margin: 15px 0 40px 30px;
+  transition: opacity 0.23s;
+  font-size: 2.5rem;
+  height: 2.7rem;
+}
+
+#content-side-flourish1 {
+  height: 100%;
+  width: 11px;
+  background-color: #b49ab0;
+  float: left;
+}
+
+#content-side-flourish2 {
+  height: 100%;
+  width: 5px;
+  background-color: #b49ab0;
+  margin-left: 16px;
+  float: left;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+#content-flourish-area {
+  width: 25px;
+  height: 100%;
+  float: left;
+  margin-left: 10px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+#flourish-and-blocks-area {
+  position: relative;
+}
+
+#blocks-area {
+  width: calc(100% - 35px);
+  float: left;
+  margin-left: 35px;
+}
+
+.thirds-block {
+  width: 33%;
+  float: left;
+  height: 400px;
+}
+
+.thirds-block-content {
+  padding: 0 15px;
+  height: 100%;
+}
+
+.content-block {
+  background-color: #dabbd1;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+}
+
+.content-block-shadow {
+  box-shadow: 4px 4px #9a8499;
+  overflow-y: hidden;
+  height: 400px;
+}
+
+.mobile-content-block-divider {
+  display: none;
+}
+
+@media (max-width: 1199px) {
+  #page-area {
+    width: auto;
+  }
+
+  #flourish-and-blocks-area {
+    width: 100%;
+  }
+
+  .thirds-block {
+    width: 100%;
+    height: auto;
+    float: none;
+  }
+
+  .mobile-content-block-divider {
+    visibility: hidden;
+    height: 20px;
+    display: block;
+    margin: 0;
+  }
+}

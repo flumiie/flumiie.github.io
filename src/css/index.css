@@ -1,0 +1,49 @@
+@font-face {
+  font-family: "Nier Rodin";
+  src: url(../assets/rodin.ttf);
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #dabbd1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b096a8;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b096a8;
+}
+
+body {
+  margin: 0;
+  background-color: #cdb0c5;
+  color: #4e424c;
+  font-family: "Nier Rodin", Arial, sans-serif;
+  font-size: 15.01pt;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+p {
+  margin: 0;
+  overflow-y: auto;
+}
+
+.clearfix {
+  clear: both;
+}
+
+@media (max-width: 1199px) {
+  body {
+    overflow-y: scroll;
+  }
+}

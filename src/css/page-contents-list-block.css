@@ -1,0 +1,92 @@
+#content-block-list-contents {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: calc(100% - 32px);
+}
+
+#content-block-list-contents::-webkit-scrollbar {
+  width: 30px;
+}
+
+#content-block-list-contents::-webkit-scrollbar-track {
+  background: #dabbd1;
+}
+
+#content-block-list-contents::-webkit-scrollbar-thumb {
+  background: #b096a8;
+  border: 13px solid rgb(218, 187, 218);
+  border-top: none;
+  border-bottom: none;
+}
+
+#content-block-list-contents::-webkit-scrollbar-thumb:hover {
+  background: #b096a8;
+}
+
+.list-flourish {
+  padding-left: 18px;
+}
+
+.list-flourish-border {
+  border: 1px solid #b096a8;
+  margin: 7px 0 2px 0;
+  width: calc(100% - 32px);
+  float: left;
+}
+
+.list-flourish-dot {
+  border: 2px solid #b096a8;
+  border-radius: 100%;
+  background-color: #b096a8;
+  height: 1px;
+  width: 1px;
+  margin: 6px 0 3px 12px;
+  float: left;
+}
+
+.list-block-option {
+  background-color: inherit;
+  padding: 10px 0 12px 0;
+  margin: 4px 0;
+  transition: background-color 0.15s, color 0.15s;
+  position: relative;
+}
+
+.list-block-option:hover,
+.list-block-option-selected {
+  background-color: #4e424c;
+  color: #dabbd1;
+}
+
+.list-block-option-icon {
+  margin: 0 14px 0 18px;
+  font-size: 17pt;
+  vertical-align: bottom;
+}
+
+.list-block-text {
+  pointer-events: none;
+}
+
+.list-selection-top,
+.list-selection-bottom {
+  width: 100%;
+  border-top: 2px solid #4e424c;
+  border-bottom: none;
+  opacity: 0;
+  position: absolute;
+  transition: opacity 0.15s;
+}
+
+.list-block-option:hover .list-selection-top,
+.list-block-option:hover .list-selection-bottom {
+  opacity: 1;
+}
+
+.list-selection-top {
+  margin: -14px 0 0 0;
+}
+
+.list-selection-bottom {
+  margin: 14px 0 0 0;
+}
