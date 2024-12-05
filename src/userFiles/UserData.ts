@@ -11,13 +11,6 @@ const UserData = {
     Home: {
       icon: "house-fill",
       tabs: {
-        "Under Development": {
-          icon: "cone-striped",
-          left: {
-            header: "Under Development",
-            text: `Hi, this site is currently under development. I'm currently working on it. Stay tuned!`,
-          },
-        },
         "My Carrd": {
           icon: "person-fill",
           left: {
@@ -36,28 +29,64 @@ const UserData = {
     "Price List": {
       icon: "book-fill",
       tabs: {
-        "Context one: $100": {
+        "Head-only Partial": {
           icon: "star-fill",
           left: {
-            header: "Context one: $100",
-            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            header: "Head only partial: IDR 1,400,000 ~ IDR 1,700,000",
+            text: "A fursuit head only. Great for starting out or you might already have your own tails, handpaws, or feetpaws",
           },
           right: {
             header: "Preview",
-            text: "",
-            image: "carrd-preview.png",
+            text: "DM me for quotes at my Telegram or Discord",
+            image: "",
           },
         },
-        "Context two: $200": {
+        "Tail Partial": {
           icon: "star-fill",
           left: {
-            header: "Context two: $200",
-            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            header: "Tail Partial: IDR 250,000 ~ IDR 500,000",
+            text: "A fursuit tail partial. Pick your own style of tail, either curly tails or a floor-drag tails for example",
           },
           right: {
             header: "Preview",
-            text: "",
-            image: "carrd-preview.png",
+            text: "DM me for quotes at my Telegram or Discord",
+            image: "",
+          },
+        },
+        "Head & Tail Partial": {
+          icon: "star-fill",
+          left: {
+            header: "Head & Tail Partial: IDR 1,500,000 ~ IDR 2,500,000",
+            text: "A fursuit head + tail partial. Pick your own style of tail, either curly tails or a floor-drag tails for example",
+          },
+          right: {
+            header: "Preview",
+            text: "DM me for quotes at my Telegram or Discord",
+            image: "",
+          },
+        },
+        "Hand & Feet Paws Partial": {
+          icon: "star-fill",
+          left: {
+            header: "Hand & Feet Paws Partial: IDR ~",
+            text: "Let's say you only need both handpaws & feetpaws",
+          },
+          right: {
+            header: "Preview",
+            text: "DM me for quotes at my Telegram or Discord",
+            image: "",
+          },
+        },
+        "Full Partial": {
+          icon: "star-fill",
+          left: {
+            header: "Full Partial: IDR 3,500,000 ~ IDR 5,000,000",
+            text: "It's almost a full fursuit but it's partial",
+          },
+          right: {
+            header: "Preview",
+            text: "DM me for quotes at my Telegram or Discord",
+            image: "",
           },
         },
       },
