@@ -9,7 +9,6 @@ const ListBlockOption = (props: ListBlockOptionProps) => {
   return (
     <div
       className={"list-block-option" + props.selected}
-      onKeyDown={props.updateCurrentTab}
       onClick={props.updateCurrentTab}
       role="button"
       tabIndex={0}

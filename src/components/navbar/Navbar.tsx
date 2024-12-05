@@ -34,7 +34,6 @@ const Navbar = (props: NavbarProps) => {
       <div id="mobile-navbar-button">
         <i
           className="bi-chevron-expand"
-          onKeyDown={() => setVisibility(!visibility)}
           onClick={() => setVisibility(!visibility)}
           role="button"
           tabIndex={0}

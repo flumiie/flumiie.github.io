@@ -11,7 +11,6 @@ const NavbarOption = (props: NavbarOptionProps) => {
   return (
     <span
       className="navbar-option-extension"
-      onKeyDown={() => props.updateCurrentPage(props.page)}
       onClick={() => props.updateCurrentPage(props.page)}
       role="button"
       tabIndex={0}
