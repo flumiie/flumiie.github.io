@@ -45,7 +45,7 @@ const ContentBlock = (props: ContentBlockProps) => {
       <p className="content-block-text" style={getOpacity()}>
         {props.data.text.split(/https?:\/\/[^\s]+/).map((S, index) => {
           const URLParsed = parse(
-            `<a style="text-decoration:underline" href="${url?.[index]}">${url?.[index]}</a>`
+            `<a style="text-decoration:underline" href="${url?.[index]}" target="_blank">${url?.[index]}</a>`
           );
           return (
             <>
