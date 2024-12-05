@@ -17,7 +17,7 @@ const ContentBlock = (props: ContentBlockProps) => {
 
   const getImage = () => {
     if (props.data.image) {
-      const image = `/src/userFiles/images/${props.data.image}`;
+      const image = `/images/${props.data.image}`;
 
       return (
         <div className="content-block-image-block" style={getOpacity()}>
