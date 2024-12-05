@@ -23,7 +23,6 @@ export const meta = () => {
 
 const getFirstTab = (page: string) => {
   const pageTabs = Object.keys(UserData.pageData[page].tabs);
-  console.log(pageTabs[0]);
   return pageTabs[0];
 };
 

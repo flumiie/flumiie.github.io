@@ -1,5 +1,7 @@
 import { Fragment } from "react/jsx-runtime";
 import "/src/css/page-contents-blocks.css";
+import React from "react";
+import parse from "html-react-parser";
 
 interface ContentBlockProps {
   data: {
@@ -36,6 +38,28 @@ const ContentBlock = (props: ContentBlockProps) => {
     return null;
   };
 
+  const text = () => {
+    const url = props.data.text.match(/https?:\/\/[^\s]+/g);
+
+    return (
+      <p className="content-block-text" style={getOpacity()}>
+        {props.data.text.split(/https?:\/\/[^\s]+/).map((S, index) => {
+          const URLParsed = parse(
+            `<a style="text-decoration:underline" href="${url?.[index]}">${url?.[index]}</a>`
+          );
+          return (
+            <>
+              {S}
+              {(URLParsed as React.JSX.Element).props.children !== "undefined"
+                ? URLParsed
+                : null}
+            </>
+          );
+        })}
+      </p>
+    );
+  };
+
   return (
     <Fragment>
       <div className="content-block-header">
@@ -44,9 +68,7 @@ const ContentBlock = (props: ContentBlockProps) => {
         </p>
       </div>
       {getImage()}
-      <p className="content-block-text" style={getOpacity()}>
-        {props.data.text}
-      </p>
+      {text()}
     </Fragment>
   );
 };

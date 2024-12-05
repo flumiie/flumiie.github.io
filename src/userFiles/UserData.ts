@@ -15,12 +15,19 @@ const UserData = {
           icon: "person-fill",
           left: {
             header: "My Carrd",
-            text: `Hewwo there! You might've come from my carrd (or not) :3 You can check it out here otherwise:\nhttps://flumi.carrd.co`,
+            text: "Hewwo there! You might've come from my carrd (or not) :3 You can check it out here otherwise:\nhttps://flumi.carrd.co",
           },
           right: {
             header: "Preview",
             text: "Thumbnail of my carrd",
             image: "carrd-preview.png",
+          },
+        },
+        "My Socials": {
+          icon: "chat-dots-fill",
+          left: {
+            header: "My Socials",
+            text: "Telegram: https://t.me/flumiie\nTwitter: https://twitter.com/flumi_husky\nDiscord: @flumiie",
           },
         },
       },
@@ -80,7 +87,7 @@ const UserData = {
         "Full Partial": {
           icon: "star-fill",
           left: {
-            header: "Full Partial: IDR 3,500,000 ~ IDR 5,000,000",
+            header: "Full Partial:\nIDR 3,500,000 ~ IDR 5,000,000",
             text: "It's almost a full fursuit but it's partial",
           },
           right: {

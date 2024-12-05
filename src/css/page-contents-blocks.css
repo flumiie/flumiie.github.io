@@ -1,10 +1,12 @@
 .content-block-header {
+  white-space: pre-wrap;
   background-color: #4e424c;
   color: #cdb0c5;
   width: 100%;
 }
 
 .content-block-text {
+  white-space: pre-wrap;
   padding: 10px 13px;
   line-height: 140%;
   transition: opacity 0.15s;
