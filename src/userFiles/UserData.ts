@@ -63,34 +63,35 @@ const UserData = {
       },
     },
 
-    // Contact: {
-    //   icon: "person-fill",
-    //   tabs: {
-    //     "Site/Tumblr": {
-    //       icon: "globe2",
-    //       left: {
-    //         header: "Personal Site",
-    //         text: `<p>I have a personal site where I have some projects I'm working on! I don't know if I'll remember to update this later, but right now it's just Homestuck-related projects. Anyway, find it <a href="https://lumens.live/">&gt;here&lt;</a>!</p>`,
-    //       },
-    //       right: {
-    //         header: "Coding/Project Tumblr",
-    //         text: `<p>I have a Tumblr account where I sometimes post about stuff I'm working on! Check it out <a href="https://lumenscode.tumblr.com/">&gt;here&lt;</a>!</p>`,
-    //       },
-    //     },
-
-    //     "GitHub/Ko-fi": {
-    //       icon: "house-fill",
-    //       left: {
-    //         header: "GitHub",
-    //         text: `<p>My GitHub account is <a href="https://github.com/luminaryFlowers">&gt;luminaryFlowers&lt;</a>! You can see my cool repositories, which I do not have many of, because a lot of them are private.</p>`,
-    //       },
-    //       right: {
-    //         header: "Ko-fi",
-    //         text: `<p>If you are thinking "wow this is cool and I have an excess of money for reasons I will not divulge and would like to give some to this guy", my Ko-fi is <a href="https://ko-fi.com/lumens">&gt;lumens&lt;</a>! Don't send me money if you need it or are saving up for a cool Klaus von Reinherz figurine though! I understand!</p>`,
-    //       },
-    //     },
-    //   },
-    // },
+    Timeline: {
+      icon: "calendar-range",
+      tabs: {
+        "#1. Ruxiria": {
+          icon: "person-walking",
+          left: {
+            header: "#1. Ruxiria",
+            text: "On the making ...",
+            image: "/ref/ruxiria.jpg",
+          },
+        },
+        "#2. Aimie": {
+          icon: "person-fill-check",
+          left: {
+            header: "Preview",
+            text: "On the list",
+            image: "/ref/aimie.jpg",
+          },
+        },
+        "#3. Bropiy Hands": {
+          icon: "person-standing",
+          left: {
+            header: "Preview",
+            text: "On hold",
+            image: "/ref/bropiyhands.jpg",
+          },
+        },
+      },
+    },
   },
 };
 
