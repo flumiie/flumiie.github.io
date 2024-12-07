@@ -1,5 +1,4 @@
-import "/src/css/background-circles.css";
-import "/src/css/background-lines.css";
+import "/src/css/background.scss";
 
 const BackgroundShapes = () => {
   return (

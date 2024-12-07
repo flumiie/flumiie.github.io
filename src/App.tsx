@@ -8,8 +8,8 @@ import {
 import { useState } from "react";
 import UserData from "./userFiles/UserData";
 
-import "./assets/bootstrap-icons-1.11.3/font/bootstrap-icons.css";
-import "./css/index.css";
+import "./assets/bootstrap-icons-1.11.3/font/bootstrap-icons.scss";
+import "./css/index.scss";
 
 export const meta = () => {
   return [

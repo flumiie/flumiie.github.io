@@ -1,3 +1,5 @@
+@import "colors.scss";
+
 #page-area {
   margin: 0 auto;
   width: 1200px;
@@ -5,7 +7,7 @@
 }
 
 #page-header {
-  color: #4e424c;
+  color: $color;
   text-shadow: 8px 8px #a392a2;
   letter-spacing: 3px;
   margin: 15px 0 40px 30px;

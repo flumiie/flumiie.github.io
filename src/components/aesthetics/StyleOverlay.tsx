@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 
-import "/src/css/style-overlay.css";
+import "/src/css/style-overlay.scss";
 
 const StyleOverlay = () => {
   return (

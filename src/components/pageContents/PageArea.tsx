@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ThirdsBlock from "./ThirdsBlock";
 import BlocksArea from "./BlocksArea";
 
-import "/src/css/page-contents.css";
+import "/src/css/page-contents.scss";
 import ContentBlock from "./ContentBlock";
 import Clearfix from "../Clearfix";
 import MobileBlockDivider from "./MobileBlockDivider";

@@ -1,3 +1,4 @@
+@import "colors.scss";
 @font-face {
   font-family: "Nier Rodin";
   src: url(../assets/rodin.ttf);
@@ -8,21 +9,21 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #dabbd1;
+  background: $scrollbarTrackColor;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #b096a8;
+  background: $scrollbarThumbColor;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #b096a8;
+  background: $scrollbarThumbHoverColor;
 }
 
 body {
   margin: 0;
   background-color: #cdb0c5;
-  color: #4e424c;
+  color: $color;
   font-family: "Nier Rodin", Arial, sans-serif;
   font-size: 15.01pt;
   overflow-x: hidden;

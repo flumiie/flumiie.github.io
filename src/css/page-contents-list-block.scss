@@ -1,3 +1,5 @@
+@import "colors.scss";
+
 #content-block-list-contents {
   overflow-y: scroll;
   overflow-x: hidden;
@@ -54,7 +56,7 @@
 
 .list-block-option:hover,
 .list-block-option-selected {
-  background-color: #4e424c;
+  background-color: $color;
   color: #dabbd1;
 }
 
@@ -71,7 +73,7 @@
 .list-selection-top,
 .list-selection-bottom {
   width: 100%;
-  border-top: 2px solid #4e424c;
+  border-top: 2px solid $color;
   border-bottom: none;
   opacity: 0;
   position: absolute;

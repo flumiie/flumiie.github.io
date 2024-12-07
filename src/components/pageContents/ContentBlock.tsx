@@ -1,5 +1,5 @@
 import { Fragment } from "react/jsx-runtime";
-import "/src/css/page-contents-blocks.css";
+import "/src/css/page-contents-blocks.scss";
 import React from "react";
 import parse from "html-react-parser";
 
@@ -48,12 +48,12 @@ const ContentBlock = (props: ContentBlockProps) => {
             `<a style="text-decoration:underline" href="${url?.[index]}" target="_blank">${url?.[index]}</a>`
           );
           return (
-            <>
+            <span key={index}>
               {S}
               {(URLParsed as React.JSX.Element).props.children !== "undefined"
                 ? URLParsed
                 : null}
-            </>
+            </span>
           );
         })}
       </p>

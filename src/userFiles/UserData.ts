@@ -87,7 +87,7 @@ const UserData = {
         "Full Partial": {
           icon: "star-fill",
           left: {
-            header: "Full Partial:\nIDR 3,500,000 ~ IDR 5,000,000",
+            header: "Full Partial: IDR 3,500,000 ~ IDR 5,000,000",
             text: "It's almost a full fursuit but it's partial",
           },
           right: {
@@ -107,7 +107,7 @@ const UserData = {
           left: {
             header: "#1. Ruxiria",
             text: "On the making ...",
-            image: "/ref/ruxiria.jpg",
+            image: "ref/ruxiria.jpg",
           },
         },
         "#2. Aimie": {
@@ -115,7 +115,7 @@ const UserData = {
           left: {
             header: "Preview",
             text: "On the list",
-            image: "/ref/aimie.jpg",
+            image: "ref/aimie.jpg",
           },
         },
         "#3. Bropiy Hands": {
@@ -123,7 +123,7 @@ const UserData = {
           left: {
             header: "Preview",
             text: "On hold",
-            image: "/ref/bropiyhands.jpg",
+            image: "ref/bropiyhands.jpg",
           },
         },
       },

@@ -1,5 +1,5 @@
 import { Fragment } from "react/jsx-runtime";
-import "/src/css/navbar.css";
+import "/src/css/navbar.scss";
 
 const NavbarBelowLine = () => {
   return (

@@ -1,4 +1,4 @@
-import "/src/css/page-contents.css";
+import "/src/css/page-contents.scss";
 import Clearfix from "../Clearfix";
 
 interface BlocksAreaProps {

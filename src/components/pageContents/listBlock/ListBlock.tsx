@@ -1,4 +1,4 @@
-import "/src/css/page-contents-list-block.css";
+import "/src/css/page-contents-list-block.scss";
 import ListFlourish from "./ListFlourish";
 import ListBlockOption from "./ListBlockOption";
 import { Fragment } from "react/jsx-runtime";
