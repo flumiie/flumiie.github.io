@@ -27,7 +27,7 @@ const UserData = {
           icon: "chat-dots-fill",
           left: {
             header: "My Socials",
-            text: "Telegram: https://t.me/flumiie\nTwitter: https://twitter.com/flumi_husky\nDiscord: @flumiie",
+            text: "Twitter: https://twitter.com/flumi_husky\nTelegram: https://t.me/flumiie\nInstagram: https://www.instagram.com/flumiie\nDiscord: @flumiie",
           },
         },
       },
@@ -69,7 +69,7 @@ const UserData = {
           },
           right: {
             header: "Preview",
-            text: "DM me for quotes at my Telegram or Discord",
+            text: "DM me for quotes at my Telegram or Instagram",
             image: "",
           },
         },
@@ -81,7 +81,7 @@ const UserData = {
           },
           right: {
             header: "Preview",
-            text: "DM me for quotes at my Telegram or Discord",
+            text: "DM me for quotes at my Telegram or Instagram",
             image: "",
           },
         },
@@ -93,7 +93,7 @@ const UserData = {
           },
           right: {
             header: "Preview",
-            text: "DM me for quotes at my Telegram or Discord",
+            text: "DM me for quotes at my Telegram or Instagram",
             image: "",
           },
         },
@@ -105,7 +105,7 @@ const UserData = {
           },
           right: {
             header: "Preview",
-            text: "DM me for quotes at my Telegram or Discord",
+            text: "DM me for quotes at my Telegram or Instagram",
             image: "",
           },
         },
@@ -117,7 +117,7 @@ const UserData = {
           },
           right: {
             header: "Preview",
-            text: "DM me for quotes at my Telegram or Discord",
+            text: "DM me for quotes at my Telegram or Instagram",
             image: "",
           },
         },
