@@ -15,7 +15,7 @@ const UserData = {
           icon: "person-fill",
           left: {
             header: "My Carrd",
-            text: "Hewwo there! You might've come from my carrd (or not) :3 You can check it out here otherwise:\nhttps://flumi.carrd.co",
+            text: "Hewwo there! You might've come from my carrd (or not) :3 You can check it out here otherwise:\nhttps://flumi.carrd.co\n(If you're on mobile, you can use the arrow above to open the menu)",
           },
           right: {
             header: "Preview",
