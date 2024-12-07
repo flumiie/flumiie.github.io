@@ -33,6 +33,31 @@ const UserData = {
       },
     },
 
+    ToS: {
+      icon: "file-text-fill",
+      tabs: {
+        "Terms of Service": {
+          icon: "check-circle-fill",
+          left: {
+            header: "Do's",
+            text: "* Fursuit\n* Any gender",
+          },
+          right: {
+            header: "Don'ts",
+            text: "* Humanoid characters\n* Fanarts\n* Mecha\n* NSFW\n* Realism",
+            image: "",
+          },
+        },
+        Rules: {
+          icon: "check-circle-fill",
+          left: {
+            header: "Rules",
+            text: "* Payments must be paid upfront 100%, to seal the deal!\n\n* Refunds only given depending on the situation, which can be discussed. 50% refunding will be given if I could not continue or other problems (discussion is the key).\n\n* I’m always open, don’t be shy to ask me about the availability!\n\n* Discuss always if the price subject to change, whether by condition or adding something to the commission!\n\n* Process will be: PAYMENT -> MAKING -> APPROVAL -> CONTINUATION -> FINISHING -> DELIVERY\n\n* I have RIGHTS to reject or decline a commission, please be understand.",
+          },
+        },
+      },
+    },
+
     "Price List": {
       icon: "book-fill",
       tabs: {

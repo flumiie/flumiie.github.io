@@ -1,5 +1,6 @@
 import { Fragment } from "react/jsx-runtime";
 import "/src/css/page-contents-blocks.scss";
+import { hasBTag } from "../../libs";
 import React from "react";
 import parse from "html-react-parser";
 
@@ -40,22 +41,44 @@ const ContentBlock = (props: ContentBlockProps) => {
 
   const text = () => {
     const url = props.data.text.match(/https?:\/\/[^\s]+/g);
+    const boldText = props.data.text.match(/<\/?b.*?>/g);
 
-    return (
-      <p className="content-block-text" style={getOpacity()}>
-        {props.data.text.split(/https?:\/\/[^\s]+/).map((S, index) => {
-          const URLParsed = parse(
-            `<a style="text-decoration:underline" href="${url?.[index]}" target="_blank">${url?.[index]}</a>`
-          );
+    const textParse = () => {
+      let res = props.data.text.split(/https?:\/\/[^\s]+/).map((S, index) => {
+        const URLParsed = parse(
+          `<a style="text-decoration:underline" href="${url?.[index]}" target="_blank">${url?.[index]}</a>`
+        );
+        return (
+          <span key={index}>
+            {S}
+            {(URLParsed as React.JSX.Element).props.children !== "undefined"
+              ? URLParsed
+              : null}
+          </span>
+        );
+      });
+
+      if (hasBTag(props.data.text))
+        res = props.data.text.split(/(<b>.+?)+(<\/b>)/i).map((S, index) => {
+          console.log(S);
+          const boldTextParsed = parse(`<b>${boldText?.[index]}</b>`);
           return (
             <span key={index}>
               {S}
-              {(URLParsed as React.JSX.Element).props.children !== "undefined"
-                ? URLParsed
+              {(boldTextParsed as React.JSX.Element).props.children !==
+              "undefined"
+                ? boldTextParsed
                 : null}
             </span>
           );
-        })}
+        });
+
+      return res;
+    };
+
+    return (
+      <p className="content-block-text" style={getOpacity()}>
+        {textParse()}
       </p>
     );
   };
