@@ -11,18 +11,18 @@
 }
 
 #content-block-list-contents::-webkit-scrollbar-track {
-  background: #dabbd1;
+  background: $contentBlockColor;
 }
 
 #content-block-list-contents::-webkit-scrollbar-thumb {
-  background: #b096a8;
-  border: 13px solid rgb(218, 187, 218);
+  background: $flourishColor;
+  border: 13px solid $contentBlockListColor;
   border-top: none;
   border-bottom: none;
 }
 
 #content-block-list-contents::-webkit-scrollbar-thumb:hover {
-  background: #b096a8;
+  background: $flourishColor;
 }
 
 .list-flourish {
@@ -30,16 +30,16 @@
 }
 
 .list-flourish-border {
-  border: 1px solid #b096a8;
+  border: 1px solid $flourishColor;
   margin: 7px 0 2px 0;
   width: calc(100% - 32px);
   float: left;
 }
 
 .list-flourish-dot {
-  border: 2px solid #b096a8;
+  border: 2px solid $flourishColor;
   border-radius: 100%;
-  background-color: #b096a8;
+  background-color: $flourishColor;
   height: 1px;
   width: 1px;
   margin: 6px 0 3px 12px;
@@ -57,7 +57,7 @@
 .list-block-option:hover,
 .list-block-option-selected {
   background-color: $color;
-  color: #dabbd1;
+  color: $contentBlockColor;
 }
 
 .list-block-option-icon {

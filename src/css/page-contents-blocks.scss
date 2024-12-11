@@ -3,7 +3,7 @@
 .content-block-header {
   white-space: pre-wrap;
   background-color: $color;
-  color: #cdb0c5;
+  color: $backgroundColor;
   width: 100%;
 }
 
@@ -21,12 +21,12 @@
 
 .content-block-image {
   width: 100%;
-  box-shadow: 4px 4px #9a8499;
+  box-shadow: 4px 4px $contentBlockShadowColor;
 }
 
 .content-block-image-divider {
   width: 96%;
   border: none;
-  border-top: 2px solid #b096a8;
+  border-top: 2px solid $scrollbarThumbColor;
   margin: 13px 3px 0 3px;
 }

@@ -18,7 +18,7 @@
 #navbar-side-flourish1 {
   height: 42px;
   width: 11px;
-  background-color: #b49ab0;
+  background-color: $flourishColor;
   display: inline-flex;
   margin-left: 5px;
 }
@@ -26,7 +26,7 @@
 #navbar-side-flourish2 {
   height: 42px;
   width: 5px;
-  background-color: #b49ab0;
+  background-color: $flourishColor;
   margin-left: 5px;
   margin-right: 10px;
   display: inline-flex;
@@ -37,7 +37,7 @@
 }
 
 .navbar-option {
-  background-color: #b49ab0;
+  background-color: $flourishColor;
   border: none;
   padding: 0;
   margin: 0 10px;
@@ -53,19 +53,19 @@
 .navbar-option-extension:hover .navbar-option,
 .active-button {
   background-color: $color;
-  color: #b49ab0;
+  color: $flourishColor;
   height: 58px;
 }
 
 .navbar-option-extension:hover .button-icon,
 .active-button .button-icon {
-  background-color: #b49ab0;
+  background-color: $flourishColor;
   color: $color;
 }
 
 .navbar-option-extension:hover .button-text,
 .active-button .button-text {
-  color: #b49ab0;
+  color: $flourishColor;
 }
 
 .navbar-button {
@@ -98,7 +98,7 @@
   align-items: center;
   float: left;
   background-color: $color;
-  color: #b49ab0;
+  color: $flourishColor;
   width: 28px;
   height: 28px;
   transition: background-color 0.15s, color 0.15s;
@@ -143,7 +143,7 @@
 
   #mobile-navbar-button {
     display: inherit;
-    background-color: #b49ab0;
+    background-color: $flourishColor;
     font-size: 20pt;
     text-align: center;
     padding: 10px 0 15px 0;

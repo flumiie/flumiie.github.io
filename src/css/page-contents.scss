@@ -8,7 +8,7 @@
 
 #page-header {
   color: $color;
-  text-shadow: 8px 8px #a392a2;
+  text-shadow: 8px 8px $pageHeaderColor;
   letter-spacing: 3px;
   margin: 15px 0 40px 30px;
   transition: opacity 0.23s;
@@ -19,14 +19,14 @@
 #content-side-flourish1 {
   height: 100%;
   width: 11px;
-  background-color: #b49ab0;
+  background-color: $flourishColor;
   float: left;
 }
 
 #content-side-flourish2 {
   height: 100%;
   width: 5px;
-  background-color: #b49ab0;
+  background-color: $flourishColor;
   margin-left: 16px;
   float: left;
   position: absolute;
@@ -66,14 +66,14 @@
 }
 
 .content-block {
-  background-color: #dabbd1;
+  background-color: $contentBlockColor;
   height: 100%;
   width: 100%;
   overflow-y: auto;
 }
 
 .content-block-shadow {
-  box-shadow: 4px 4px #9a8499;
+  box-shadow: 4px 4px $contentBlockShadowColor;
   height: 100%;
 }
 
