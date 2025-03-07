@@ -96,28 +96,28 @@ const UserData = {
             text: "Parsial Kepala & Ekor Fursuit. Pilih style ekormu sendiri, curly tails atau yang nyentuh lantai\n\nDM saya untuk quote harga di Telegram atau Instagram",
           },
         },
-        "Hand & Feet Paws Partial": {
-          icon: "star-fill",
-          left: {
-            header: "Hand & Feet Paws Partial: IDR ~",
-            text: "Let's say you only need both handpaws & feetpaws\n\nDM me for quotes at my Telegram or Instagram",
-          },
-          right: {
-            header: "Parsial Paw Tangan & Kaki: IDR ~",
-            text: "Mungkin aja kamu cuma butuh paw tangan & kaki\n\nDM saya untuk quote harga di Telegram atau Instagram",
-          },
-        },
-        "Full Partial": {
-          icon: "star-fill",
-          left: {
-            header: "Full Partial: IDR 3,500,000 ~ IDR 5,000,000",
-            text: "It's almost a full fursuit but it's partial\n\nDM me for quotes at my Telegram or Instagram",
-          },
-          right: {
-            header: "Parsial Penuh: IDR 3,500,000 ~ IDR 5,000,000",
-            text: "Hampir full fursuit tapi ini partial\n\nDM saya untuk quote harga di Telegram atau Instagram",
-          },
-        },
+        // "Hand & Feet Paws Partial": {
+        //   icon: "star-fill",
+        //   left: {
+        //     header: "Hand & Feet Paws Partial: IDR ~",
+        //     text: "Let's say you only need both handpaws & feetpaws\n\nDM me for quotes at my Telegram or Instagram",
+        //   },
+        //   right: {
+        //     header: "Parsial Paw Tangan & Kaki: IDR ~",
+        //     text: "Mungkin aja kamu cuma butuh paw tangan & kaki\n\nDM saya untuk quote harga di Telegram atau Instagram",
+        //   },
+        // },
+        // "Full Partial": {
+        //   icon: "star-fill",
+        //   left: {
+        //     header: "Full Partial: IDR 3,500,000 ~ IDR 5,000,000",
+        //     text: "It's almost a full fursuit but it's partial\n\nDM me for quotes at my Telegram or Instagram",
+        //   },
+        //   right: {
+        //     header: "Parsial Penuh: IDR 3,500,000 ~ IDR 5,000,000",
+        //     text: "Hampir full fursuit tapi ini partial\n\nDM saya untuk quote harga di Telegram atau Instagram",
+        //   },
+        // },
       },
     },
 
@@ -128,7 +128,7 @@ const UserData = {
           icon: "person-walking",
           left: {
             header: "#1. Ruxiria",
-            text: "On the making ...\n\nSedang dibuat ...",
+            text: "Almost there ...\n\nHampir selesai ...",
             image: "ref/ruxiria.jpg",
           },
         },
@@ -136,7 +136,7 @@ const UserData = {
           icon: "person-fill-check",
           left: {
             header: "#2. Aimie",
-            text: "On the list\n\nDalam daftar",
+            text: "Printing the head base ...\n\nSedang print head base ...",
             image: "ref/aimie.jpg",
           },
         },
