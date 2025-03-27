@@ -125,23 +125,23 @@ const UserData = {
       icon: "calendar-range",
       tabs: {
         "#1. Ruxiria": {
-          icon: "person-walking",
+          icon: "person-standing",
           left: {
             header: "#1. Ruxiria",
-            text: "Almost there ...\n\nHampir selesai ...",
+            text: "Done\n\nSelesai",
             image: "ref/ruxiria.jpg",
           },
         },
         "#2. Aimie": {
-          icon: "person-fill-check",
+          icon: "person-walking",
           left: {
             header: "#2. Aimie",
-            text: "Printing the head base ...\n\nSedang print head base ...",
-            image: "ref/aimie.jpg",
+            text: "Printing the head base ...\n\nSedang mencetak base kepala...",
+            image: "ref/aimie_v2.png",
           },
         },
         "#3. Bropiy Hands": {
-          icon: "person-standing",
+          icon: "person-standing", //person-fill-check
           left: {
             header: "#3. Bropiy Hands",
             text: "On hold\n\nJeda",
